@@ -77,6 +77,9 @@ requirejs([
       }
       
       TVPage.interface = new TVPInterface(options, callback);
+      if (typeof callback == "function"){
+        callback();
+      }
     };
     
     TVPage.init();

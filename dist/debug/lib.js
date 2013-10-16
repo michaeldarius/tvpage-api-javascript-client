@@ -12573,10 +12573,6 @@ function(_, SpotCollection, GuideCollection) {
     this.guideCollection = new GuideCollection();
     this.guideCollection.setKey(pageId);
     var fetched = this.guideCollection.fetch();
-    fetched.done(function(){
-      success(pageId, THAT.guideCollection.toJSON());
-    });
-
     if (typeof success == "function") {
      fetched.done(function(){
        success(pageId, THAT.guideCollection.toJSON());
@@ -12780,6 +12776,9 @@ tfw.requirejs([
       }
       
       TVPage.interface = new TVPInterface(options, callback);
+      if (typeof callback == "function"){
+        callback();
+      }
     };
     
     TVPage.init();
