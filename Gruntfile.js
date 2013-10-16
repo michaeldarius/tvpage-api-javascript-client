@@ -58,33 +58,36 @@ module.exports = function(grunt) {
         dest: 'dist/release/lib.js'
       }
     },
+    
+    watch: {
+      gruntfile: {
+        files: ["./src/**/*.js", "index.html"],
+      },
+    },
+    
     connect: {
-      server: {
+      all: {
         options: {
           port: 9001,
           baseUrl: "./"
         }
-      },
-      all: {
-        port: 8000,
-        base: './'
       }
     },
     jasmine: {
       all: {
-        src: 'tests/**/*.js',
+        src: 'src/tvp/**/*.js',
         options: {
           //keepRunner: true,
-          specs: 'tests/specs/*Spec.js',
-          helpers: 'tests/helpers/*Helper.js',
-          host: 'http://127.0.0.1:8000/',
+          specs: './test/specs/**/*Test.js',
+          helpers: './tests/helpers/*Helper.js',
+          host: 'http://127.0.0.1:9001/',
           template: require('grunt-template-jasmine-requirejs'),
           templateOptions: {
-            requireConfigFile: 'config.js',
+            requireConfigFile: 'src/config.js',
             requireConfig: {
-              baseUrl: "./src"
+              baseUrl: "src/"
             }
-          }
+           }
         }
       }
     }
@@ -99,7 +102,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-connect');
-
+  grunt.loadNpmTasks('grunt-contrib-watch');
   // Register 
   grunt.registerTask('debug:all', [ 'clean:all', 'requirejs:all', 'concat:all']);
   grunt.registerTask('release:all', [ 'debug:all', 'uglify:all']);

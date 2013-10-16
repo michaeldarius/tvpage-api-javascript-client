@@ -11,5 +11,18 @@ require.config({
     main: "./main",
     jquery: "lib/jquery",
     backbone: "lib/backbone",
+    underscore: "lib/underscore"
+  },
+  
+  shim: {
+		backbone: {
+			deps: ["underscore", "jquery"],
+			exports: "Backbone"
+		},
+
+		underscore: {
+			exports: "_"
+		}
   }
+  
 });
