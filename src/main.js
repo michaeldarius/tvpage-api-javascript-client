@@ -34,8 +34,12 @@ requirejs([
       return TVPage.interface.getVideoThumbnail(videoId);
     };
     
-    TVPage.getChildren = function(tvpageId){
-      
+    TVPage.getThumbnail = function(videoId){
+      return TVPage.interface.getThumbnail(videoId);
+    };
+    
+    TVPage.getChildren = function(id){
+      return TVPage.interface.getChildren(id);
     }
     
     TVPage.play = function(){
