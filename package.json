@@ -1,6 +1,11 @@
 {
-  "name": "my-project-name",
-  "author": "TVPage, Inc",
+  "name": "TVPage SDK",
+  "author": {
+    "name": "Lior Kuyer",
+    "org":"TVPage, Inc."
+  },
+  "licenses":[{"type":"GPL"}],
+  "homepage": "https://www.tvpage.com",
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.1",
