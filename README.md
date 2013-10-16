@@ -29,4 +29,11 @@ Getting started
 </script>
 ```
 
-
+Functions
+--------------------------------------
+```javascript
+TVPage.getSpots(videoId, success, failure)
+TVPage.getTVPage(pageId, success, failure)
+TVPage.getThumbnail(videoId)
+TVPage.getChildren(id)
+```
