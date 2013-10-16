@@ -1,3 +1,0 @@
-grunt test:all
-grunt connect:all watch
-http://localhost:9001/_SpecRunner.html
