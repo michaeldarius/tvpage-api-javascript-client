@@ -96,7 +96,6 @@ function(_, SpotCollection, GuideCollection) {
       
       if ( _.isObject(model) ) {
         item = model.toJSON();
-        console.log("FOUND MODEL", model, item);
       }
     }
     
