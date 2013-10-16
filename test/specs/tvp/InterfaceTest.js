@@ -78,7 +78,7 @@ define(
       interface.getTVPage(id, success);
       waitsFor(function(){
         var models = interface.getChannelVideos(70639);
-        return (models.length > 0);
+        return (models && models.length > 0);
       }, "Failed to retrieve channel videos", 2000);
     });
     
@@ -97,7 +97,23 @@ define(
         var thumbnail = interface.getThumbnail(70637);
         return (_.isObject(channel) && channel.id == 70639 && thumbnail && thumbnail.length > 0);
       }, "Failed to fetch channel", 2000);
-    });     
+    });
+    
+    it('getChildren',function(){
+      var id = 70603;
+      var returnedModels = null;
+      var returnedId = null;
+      var success = function(tvpageId, models){
+        returnedModels = models;
+        returnedId = tvpageId;
+      };
+      
+      interface.getTVPage(id, success);
+      waitsFor(function(){
+        var children = interface.getChildren(70603);
+        return (children.length>0);
+      }, "Failed to fetch channel", 2000);
+    });    
   });
 });
   

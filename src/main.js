@@ -31,8 +31,12 @@ requirejs([
     };
     
     TVPage.getVideoThumbnail = function(videoId){
-      return TVPage.interface.getChannelThumbnail(videoId);
+      return TVPage.interface.getVideoThumbnail(videoId);
     };
+    
+    TVPage.getChildren = function(tvpageId){
+      
+    }
     
     TVPage.play = function(){
       throw new Error("Not yet implemented");

@@ -5,6 +5,13 @@ define([
 	var GuideCollection = TVPCollection.extend({
     _url: '/guide/',
     
+    /**
+     * Parse response
+     * 
+     * @param {type} response
+     * 
+     * @returns {object} parsed response
+     */
     parse:function(response){
       _.each(response,function(itm,n){
         if(itm.assetDetails){
