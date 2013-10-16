@@ -11,7 +11,8 @@ require.config({
     main: "./main",
     jquery: "lib/jquery",
     backbone: "lib/backbone",
-    underscore: "lib/underscore"
+    underscore: "lib/underscore",
+    sinon: "lib/sinon",
   },
   
   shim: {
@@ -22,7 +23,10 @@ require.config({
 
 		underscore: {
 			exports: "_"
-		}
+		},
+		sinon:{
+			exports:'sinon'
+		},
   }
   
 });

@@ -13,14 +13,10 @@ function($, _, Backbone, TVPModel) {
       if (_.isObject(options) && _.has(options,'baseUrl')) {
         this.baseUrl = options.baseUrl;
       } else {
-        this.baseUrl = "https://www.tvpage.com/api/";
+        this.baseUrl = "https://www.tvpage.com/api";
       }
       
       Backbone.Collection.call(this, models, options);
-    },
-    
-    fetch: function(key, options){
-      return Backbone.Collection.prototype.fetch.call(this, options);
     },
     
     parse: function(response) {
@@ -59,9 +55,7 @@ function($, _, Backbone, TVPModel) {
     },
             
     url: function(){
-      var url = this.getBaseUrl() + "/" + this.getPath();
-      console.log("URL", url);
-      return this.getBaseUrl() + "/" + this.getPath();
+      return this.getBaseUrl() + this.getPath();
     }       
   });
   

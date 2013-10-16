@@ -1,6 +1,5 @@
 // Save reference to the global object
 var root = this;
-console.log("ROOT", root);
 var TVPage = root.TVPage = {};
 TVPage.__global = {};
 TVPage.config = function(options){
@@ -12,48 +11,47 @@ TVPage.ready = function(callback){
 };
 // Start the main app logic.
 requirejs([
-  'jquery',
   "tvp/Interface"
 ],
-  function($, TVPInterface) {
+  function(TVPInterface) {
     TVPage.getSpots = function(videoId, success, failure){
-      
+      return TVPage.interface.getSpots(videoId, success, failure);
     };
     
     TVPage.getTVPage = function(pageId, success, failure){
-      
+      return TVPage.interface.getTVPage(pageId, success, failure);
     };
     
-    TVPage.getChannel = function(channelId, success, failure){
-      
+    TVPage.getChannel = function(channelId){
+      return TVPage.interface.getChannel(channelId);
     };
     
-    TVPage.getChannelThumbnail = function(channelId, success, failure){
-      
+    TVPage.getChannelThumbnail = function(channelId){
+      return TVPage.interface.getChannelThumbnail(channelId);
     };
     
-    TVPage.getVideoThumbnail = function(videoId, success, failure){
-      
+    TVPage.getVideoThumbnail = function(videoId){
+      return TVPage.interface.getChannelThumbnail(videoId);
     };
     
     TVPage.play = function(){
-      
+      throw new Error("Not yet implemented");
     };
     
     TVPage.pause = function(){
-      
+      throw new Error("Not yet implemented");
     };
     
     TVPage.loadById = function(videoId){
-      
+      throw new Error("Not yet implemented");
     };
     
     TVPage.seekTo = function(seek){
-      
+      throw new Error("Not yet implemented");
     };
 
     TVPage.volume = function(volume){
-      
+      throw new Error("Not yet implemented");
     };
     
     TVPage.init = function(){
@@ -70,7 +68,7 @@ requirejs([
         callback = TVPage.__global.callback;
       }
       
-      TVPage.__global.instance = new TVPInterface(options, callback);
+      TVPage.interface = new TVPInterface(options, callback);
     };
     
     TVPage.init();

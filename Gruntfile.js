@@ -77,7 +77,7 @@ module.exports = function(grunt) {
       all: {
         src: 'src/tvp/**/*.js',
         options: {
-          //keepRunner: true,
+          keepRunner: true,
           specs: './test/specs/**/*Test.js',
           helpers: './tests/helpers/*Helper.js',
           host: 'http://127.0.0.1:9001/',
