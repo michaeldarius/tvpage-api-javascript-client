@@ -15,8 +15,8 @@ Getting started
     analytics: true,
   });
   
-  var success = function (id, models){
-    console.log("FETCHED", id, models);
+  var success = function (id, data){
+    console.log("FETCHED", id, data);
   };
   
   var failure = function(){
@@ -24,10 +24,7 @@ Getting started
   };
   
   TVPage.ready(function(){
-    console.log("hmmmm...");
-    var promise = TVPage.getTVPage(70603, function(){
-      
-    });
+    TVPage.getTVPage(70603, success);
   });
 </script>
 ```
