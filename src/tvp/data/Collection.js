@@ -55,7 +55,7 @@ function($, _, Backbone, TVPModel) {
     },
             
     getPath: function(){
-      throw new Error("Must be implemented");
+      return this._url + this.getKey();
     },
             
     url: function(){

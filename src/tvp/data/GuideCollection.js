@@ -3,9 +3,7 @@ define([
 ],
 	function(TVPCollection) {
 	var GuideCollection = TVPCollection.extend({
-    getPath: function(){
-      return '/guide/' + this.getKey();
-    },
+    _url: '/guide/'
 	});
 
 	return GuideCollection;

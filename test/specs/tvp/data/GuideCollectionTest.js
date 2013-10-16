@@ -2,7 +2,6 @@ define(["tvp/data/GuideCollection"], function(GuideCollection){
   describe("Guide Collection", function() {
     var guideCollection;
     beforeEach(function(){
-      console.info("RUNNING TEST...")
       guideCollection = new GuideCollection();
       guideCollection.setKey(70603);
       guideCollection.fetch();
