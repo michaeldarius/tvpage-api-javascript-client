@@ -6,8 +6,6 @@ Getting started
 
 ```html
 <div id="TVPage_Player"></div>
-<body>
-
 <script src="http://tfw.tvpage.com/dist/release/lib.js"></script>
 <!-- Facebook -->
 <script type="text/javascript">
@@ -32,8 +30,6 @@ Getting started
       
     });
   });
-  
-  
 </script>
 ```
 
