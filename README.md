@@ -7,7 +7,6 @@ Getting started
 ```html
 <div id="TVPage_Player"></div>
 <script src="http://tfw.tvpage.com/dist/release/lib.js"></script>
-<!-- Facebook -->
 <script type="text/javascript">
   TVPage.config({
     tvpageId: 123,
