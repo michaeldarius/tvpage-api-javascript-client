@@ -11,9 +11,10 @@ TVPage.ready = function(callback){
 };
 // Start the main app logic.
 requirejs([
+  "jquery",
   "tvp/Interface"
 ],
-  function(TVPInterface) {
+  function($, TVPInterface) {
     TVPage.getSpots = function(videoId, success, failure){
       return TVPage.interface.getSpots(videoId, success, failure);
     };
@@ -43,23 +44,23 @@ requirejs([
     }
     
     TVPage.play = function(){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.play();
     };
     
     TVPage.pause = function(){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.pause();
     };
     
     TVPage.loadById = function(videoId){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.loadById(videoId);
     };
     
     TVPage.seekTo = function(seek){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.seekTo();
     };
 
     TVPage.volume = function(volume){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.volume(volume);
     };
     
     TVPage.init = function(){
@@ -77,11 +78,10 @@ requirejs([
       }
       
       TVPage.interface = new TVPInterface(options, callback);
-      if (typeof callback == "function"){
-        callback();
-      }
     };
     
-    TVPage.init();
+    $(document).ready(function(){
+      TVPage.init();
+    });
   });
 

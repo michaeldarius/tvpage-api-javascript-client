@@ -1,7 +1,9 @@
 define([
+  "jquery",
 	"tvp/View",
+  "tvp/EventHandler"
 ],
-	function(TVPView) {
+	function($, TVPView, EventHandler) {
   /**
    * Player class
    * This is the Player class
@@ -30,19 +32,11 @@ define([
       TVPView.call(this, app, options);
     },
 
-
     initialize: function(){
       TVPView.prototype.initialize.call(this);
-      this.eventHandler.bind(Player.Events.VideoEnded, this.handleVideoEnded, this);
-			this.eventHandler.bind(Player.Events.VideoIdSet, this.handleVideoIdSet,this);
+      EventHandler.bind(Player.Events.VideoEnded, this.handleVideoEnded, this);
+			EventHandler.bind(Player.Events.VideoIdSet, this.handleVideoIdSet,this);
     },
-
-		handleHomeClicked:function(e){
-      //TODO: Fix the LOGO CLICK HERE I THINK, I DONT KNOW WHY THIS CODE IS HERE ACTUALLY - MB SHOULD BE IN MENUBAR?
-
-			this.stopPlayer();
-      //this.resizeFrame(null, null, null, null, "auto");
-		},
 
 		handleVideoEnded: function(e){
 			this.videoEnded = true;
@@ -121,7 +115,7 @@ define([
 
      @param {string} id - The unique video id from the provider
      */
-    loadVideoById: function(){
+    loadVideoById: function(videoId){
       throw "Method not implemented!";
     },
             
@@ -130,7 +124,7 @@ define([
 
      @param {string} id - The unique video id from the provider
      */
-    cueVideoById: function(){
+    cueVideoById: function(videoId){
       throw "Method not implemented!";
     },
 
@@ -338,8 +332,6 @@ define([
     VideoPlayerReady: "player::ready",
     VideoCued: "player::video::cued"
   };
-  
-  //window.player = Player;
   
 	return Player;
 });

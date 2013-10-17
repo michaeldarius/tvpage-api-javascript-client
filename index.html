@@ -4,19 +4,40 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width"/>
-
   <title>TVPage</title>
-</head>
+  </head>
 <body>
+  <script src="http://tfw.tvpage.com/dist/debug/lib.js"></script>
+  <script type="text/javascript">
+    TVPage.config({
+      tvpageId: 123,
+      domId: 'TVPage_Player',
+      analytics: true,
+    });
 
-<script src="//dist/release/tfw.js"></script>
-<!-- Facebook -->
-<script type="text/javascript">
-  TVPage.ready(function(){
-    console.log("bla bla bla");
-  });
-</script>
+    var success = function (id, models){
+      console.log("FETCHED", id, models);
+      for (var i in models) {
+        if (models[i].id == "70634") {
+          TVPage.loadById(models[i].id);
+          break;
+        }
+      }
+    };
 
+    var failure = function(){
+      alert("Failed to retrieve data");
+    };
 
+    TVPage.ready(function(){
+      TVPage.getTVPage(70603, success);
+    });
+  </script>
+  <div>
+    <iframe id="TVPage_Player" type="text/html" width="320px" height="180px" wmode="transparent"
+            src="//www.youtube.com/embed/?enablejsapi=1&showinfo=0&iv_load_policy=3&rel=0&wmode=transparent&controls=0"
+            frameborder="0" style="position:absolute">
+    </iframe>
+  </div>
 </body>
 </html>

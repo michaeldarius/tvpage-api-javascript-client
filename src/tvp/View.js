@@ -13,7 +13,6 @@ define([
 		 * @return TVPView Object
 		 */
 		var TVPView = Backbone.View.extend({
-      utils:Utils,
 			templatePath: '',
 			path:'',
 		});

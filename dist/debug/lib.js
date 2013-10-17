@@ -2028,19 +2028,6 @@ tfw.requirejs = requirejs;tfw.require = require;tfw.define = define;
 }());
 tfw.define("requireLib", function(){});
 
-//     Underscore.js 1.5.2
-//     http://underscorejs.org
-//     (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-//     Underscore may be freely distributed under the MIT license.
-(function(){var n=this,t=n._,r={},e=Array.prototype,u=Object.prototype,i=Function.prototype,a=e.push,o=e.slice,c=e.concat,l=u.toString,f=u.hasOwnProperty,s=e.forEach,p=e.map,h=e.reduce,v=e.reduceRight,g=e.filter,d=e.every,m=e.some,y=e.indexOf,b=e.lastIndexOf,x=Array.isArray,w=Object.keys,_=i.bind,j=function(n){return n instanceof j?n:this instanceof j?(this._wrapped=n,void 0):new j(n)};"undefined"!=typeof exports?("undefined"!=typeof module&&module.exports&&(exports=module.exports=j),exports._=j):n._=j,j.VERSION="1.5.2";var A=j.each=j.forEach=function(n,t,e){if(null!=n)if(s&&n.forEach===s)n.forEach(t,e);else if(n.length===+n.length){for(var u=0,i=n.length;i>u;u++)if(t.call(e,n[u],u,n)===r)return}else for(var a=j.keys(n),u=0,i=a.length;i>u;u++)if(t.call(e,n[a[u]],a[u],n)===r)return};j.map=j.collect=function(n,t,r){var e=[];return null==n?e:p&&n.map===p?n.map(t,r):(A(n,function(n,u,i){e.push(t.call(r,n,u,i))}),e)};var E="Reduce of empty array with no initial value";j.reduce=j.foldl=j.inject=function(n,t,r,e){var u=arguments.length>2;if(null==n&&(n=[]),h&&n.reduce===h)return e&&(t=j.bind(t,e)),u?n.reduce(t,r):n.reduce(t);if(A(n,function(n,i,a){u?r=t.call(e,r,n,i,a):(r=n,u=!0)}),!u)throw new TypeError(E);return r},j.reduceRight=j.foldr=function(n,t,r,e){var u=arguments.length>2;if(null==n&&(n=[]),v&&n.reduceRight===v)return e&&(t=j.bind(t,e)),u?n.reduceRight(t,r):n.reduceRight(t);var i=n.length;if(i!==+i){var a=j.keys(n);i=a.length}if(A(n,function(o,c,l){c=a?a[--i]:--i,u?r=t.call(e,r,n[c],c,l):(r=n[c],u=!0)}),!u)throw new TypeError(E);return r},j.find=j.detect=function(n,t,r){var e;return O(n,function(n,u,i){return t.call(r,n,u,i)?(e=n,!0):void 0}),e},j.filter=j.select=function(n,t,r){var e=[];return null==n?e:g&&n.filter===g?n.filter(t,r):(A(n,function(n,u,i){t.call(r,n,u,i)&&e.push(n)}),e)},j.reject=function(n,t,r){return j.filter(n,function(n,e,u){return!t.call(r,n,e,u)},r)},j.every=j.all=function(n,t,e){t||(t=j.identity);var u=!0;return null==n?u:d&&n.every===d?n.every(t,e):(A(n,function(n,i,a){return(u=u&&t.call(e,n,i,a))?void 0:r}),!!u)};var O=j.some=j.any=function(n,t,e){t||(t=j.identity);var u=!1;return null==n?u:m&&n.some===m?n.some(t,e):(A(n,function(n,i,a){return u||(u=t.call(e,n,i,a))?r:void 0}),!!u)};j.contains=j.include=function(n,t){return null==n?!1:y&&n.indexOf===y?n.indexOf(t)!=-1:O(n,function(n){return n===t})},j.invoke=function(n,t){var r=o.call(arguments,2),e=j.isFunction(t);return j.map(n,function(n){return(e?t:n[t]).apply(n,r)})},j.pluck=function(n,t){return j.map(n,function(n){return n[t]})},j.where=function(n,t,r){return j.isEmpty(t)?r?void 0:[]:j[r?"find":"filter"](n,function(n){for(var r in t)if(t[r]!==n[r])return!1;return!0})},j.findWhere=function(n,t){return j.where(n,t,!0)},j.max=function(n,t,r){if(!t&&j.isArray(n)&&n[0]===+n[0]&&n.length<65535)return Math.max.apply(Math,n);if(!t&&j.isEmpty(n))return-1/0;var e={computed:-1/0,value:-1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;a>e.computed&&(e={value:n,computed:a})}),e.value},j.min=function(n,t,r){if(!t&&j.isArray(n)&&n[0]===+n[0]&&n.length<65535)return Math.min.apply(Math,n);if(!t&&j.isEmpty(n))return 1/0;var e={computed:1/0,value:1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;a<e.computed&&(e={value:n,computed:a})}),e.value},j.shuffle=function(n){var t,r=0,e=[];return A(n,function(n){t=j.random(r++),e[r-1]=e[t],e[t]=n}),e},j.sample=function(n,t,r){return arguments.length<2||r?n[j.random(n.length-1)]:j.shuffle(n).slice(0,Math.max(0,t))};var k=function(n){return j.isFunction(n)?n:function(t){return t[n]}};j.sortBy=function(n,t,r){var e=k(t);return j.pluck(j.map(n,function(n,t,u){return{value:n,index:t,criteria:e.call(r,n,t,u)}}).sort(function(n,t){var r=n.criteria,e=t.criteria;if(r!==e){if(r>e||r===void 0)return 1;if(e>r||e===void 0)return-1}return n.index-t.index}),"value")};var F=function(n){return function(t,r,e){var u={},i=null==r?j.identity:k(r);return A(t,function(r,a){var o=i.call(e,r,a,t);n(u,o,r)}),u}};j.groupBy=F(function(n,t,r){(j.has(n,t)?n[t]:n[t]=[]).push(r)}),j.indexBy=F(function(n,t,r){n[t]=r}),j.countBy=F(function(n,t){j.has(n,t)?n[t]++:n[t]=1}),j.sortedIndex=function(n,t,r,e){r=null==r?j.identity:k(r);for(var u=r.call(e,t),i=0,a=n.length;a>i;){var o=i+a>>>1;r.call(e,n[o])<u?i=o+1:a=o}return i},j.toArray=function(n){return n?j.isArray(n)?o.call(n):n.length===+n.length?j.map(n,j.identity):j.values(n):[]},j.size=function(n){return null==n?0:n.length===+n.length?n.length:j.keys(n).length},j.first=j.head=j.take=function(n,t,r){return null==n?void 0:null==t||r?n[0]:o.call(n,0,t)},j.initial=function(n,t,r){return o.call(n,0,n.length-(null==t||r?1:t))},j.last=function(n,t,r){return null==n?void 0:null==t||r?n[n.length-1]:o.call(n,Math.max(n.length-t,0))},j.rest=j.tail=j.drop=function(n,t,r){return o.call(n,null==t||r?1:t)},j.compact=function(n){return j.filter(n,j.identity)};var M=function(n,t,r){return t&&j.every(n,j.isArray)?c.apply(r,n):(A(n,function(n){j.isArray(n)||j.isArguments(n)?t?a.apply(r,n):M(n,t,r):r.push(n)}),r)};j.flatten=function(n,t){return M(n,t,[])},j.without=function(n){return j.difference(n,o.call(arguments,1))},j.uniq=j.unique=function(n,t,r,e){j.isFunction(t)&&(e=r,r=t,t=!1);var u=r?j.map(n,r,e):n,i=[],a=[];return A(u,function(r,e){(t?e&&a[a.length-1]===r:j.contains(a,r))||(a.push(r),i.push(n[e]))}),i},j.union=function(){return j.uniq(j.flatten(arguments,!0))},j.intersection=function(n){var t=o.call(arguments,1);return j.filter(j.uniq(n),function(n){return j.every(t,function(t){return j.indexOf(t,n)>=0})})},j.difference=function(n){var t=c.apply(e,o.call(arguments,1));return j.filter(n,function(n){return!j.contains(t,n)})},j.zip=function(){for(var n=j.max(j.pluck(arguments,"length").concat(0)),t=new Array(n),r=0;n>r;r++)t[r]=j.pluck(arguments,""+r);return t},j.object=function(n,t){if(null==n)return{};for(var r={},e=0,u=n.length;u>e;e++)t?r[n[e]]=t[e]:r[n[e][0]]=n[e][1];return r},j.indexOf=function(n,t,r){if(null==n)return-1;var e=0,u=n.length;if(r){if("number"!=typeof r)return e=j.sortedIndex(n,t),n[e]===t?e:-1;e=0>r?Math.max(0,u+r):r}if(y&&n.indexOf===y)return n.indexOf(t,r);for(;u>e;e++)if(n[e]===t)return e;return-1},j.lastIndexOf=function(n,t,r){if(null==n)return-1;var e=null!=r;if(b&&n.lastIndexOf===b)return e?n.lastIndexOf(t,r):n.lastIndexOf(t);for(var u=e?r:n.length;u--;)if(n[u]===t)return u;return-1},j.range=function(n,t,r){arguments.length<=1&&(t=n||0,n=0),r=arguments[2]||1;for(var e=Math.max(Math.ceil((t-n)/r),0),u=0,i=new Array(e);e>u;)i[u++]=n,n+=r;return i};var R=function(){};j.bind=function(n,t){var r,e;if(_&&n.bind===_)return _.apply(n,o.call(arguments,1));if(!j.isFunction(n))throw new TypeError;return r=o.call(arguments,2),e=function(){if(!(this instanceof e))return n.apply(t,r.concat(o.call(arguments)));R.prototype=n.prototype;var u=new R;R.prototype=null;var i=n.apply(u,r.concat(o.call(arguments)));return Object(i)===i?i:u}},j.partial=function(n){var t=o.call(arguments,1);return function(){return n.apply(this,t.concat(o.call(arguments)))}},j.bindAll=function(n){var t=o.call(arguments,1);if(0===t.length)throw new Error("bindAll must be passed function names");return A(t,function(t){n[t]=j.bind(n[t],n)}),n},j.memoize=function(n,t){var r={};return t||(t=j.identity),function(){var e=t.apply(this,arguments);return j.has(r,e)?r[e]:r[e]=n.apply(this,arguments)}},j.delay=function(n,t){var r=o.call(arguments,2);return setTimeout(function(){return n.apply(null,r)},t)},j.defer=function(n){return j.delay.apply(j,[n,1].concat(o.call(arguments,1)))},j.throttle=function(n,t,r){var e,u,i,a=null,o=0;r||(r={});var c=function(){o=r.leading===!1?0:new Date,a=null,i=n.apply(e,u)};return function(){var l=new Date;o||r.leading!==!1||(o=l);var f=t-(l-o);return e=this,u=arguments,0>=f?(clearTimeout(a),a=null,o=l,i=n.apply(e,u)):a||r.trailing===!1||(a=setTimeout(c,f)),i}},j.debounce=function(n,t,r){var e,u,i,a,o;return function(){i=this,u=arguments,a=new Date;var c=function(){var l=new Date-a;t>l?e=setTimeout(c,t-l):(e=null,r||(o=n.apply(i,u)))},l=r&&!e;return e||(e=setTimeout(c,t)),l&&(o=n.apply(i,u)),o}},j.once=function(n){var t,r=!1;return function(){return r?t:(r=!0,t=n.apply(this,arguments),n=null,t)}},j.wrap=function(n,t){return function(){var r=[n];return a.apply(r,arguments),t.apply(this,r)}},j.compose=function(){var n=arguments;return function(){for(var t=arguments,r=n.length-1;r>=0;r--)t=[n[r].apply(this,t)];return t[0]}},j.after=function(n,t){return function(){return--n<1?t.apply(this,arguments):void 0}},j.keys=w||function(n){if(n!==Object(n))throw new TypeError("Invalid object");var t=[];for(var r in n)j.has(n,r)&&t.push(r);return t},j.values=function(n){for(var t=j.keys(n),r=t.length,e=new Array(r),u=0;r>u;u++)e[u]=n[t[u]];return e},j.pairs=function(n){for(var t=j.keys(n),r=t.length,e=new Array(r),u=0;r>u;u++)e[u]=[t[u],n[t[u]]];return e},j.invert=function(n){for(var t={},r=j.keys(n),e=0,u=r.length;u>e;e++)t[n[r[e]]]=r[e];return t},j.functions=j.methods=function(n){var t=[];for(var r in n)j.isFunction(n[r])&&t.push(r);return t.sort()},j.extend=function(n){return A(o.call(arguments,1),function(t){if(t)for(var r in t)n[r]=t[r]}),n},j.pick=function(n){var t={},r=c.apply(e,o.call(arguments,1));return A(r,function(r){r in n&&(t[r]=n[r])}),t},j.omit=function(n){var t={},r=c.apply(e,o.call(arguments,1));for(var u in n)j.contains(r,u)||(t[u]=n[u]);return t},j.defaults=function(n){return A(o.call(arguments,1),function(t){if(t)for(var r in t)n[r]===void 0&&(n[r]=t[r])}),n},j.clone=function(n){return j.isObject(n)?j.isArray(n)?n.slice():j.extend({},n):n},j.tap=function(n,t){return t(n),n};var S=function(n,t,r,e){if(n===t)return 0!==n||1/n==1/t;if(null==n||null==t)return n===t;n instanceof j&&(n=n._wrapped),t instanceof j&&(t=t._wrapped);var u=l.call(n);if(u!=l.call(t))return!1;switch(u){case"[object String]":return n==String(t);case"[object Number]":return n!=+n?t!=+t:0==n?1/n==1/t:n==+t;case"[object Date]":case"[object Boolean]":return+n==+t;case"[object RegExp]":return n.source==t.source&&n.global==t.global&&n.multiline==t.multiline&&n.ignoreCase==t.ignoreCase}if("object"!=typeof n||"object"!=typeof t)return!1;for(var i=r.length;i--;)if(r[i]==n)return e[i]==t;var a=n.constructor,o=t.constructor;if(a!==o&&!(j.isFunction(a)&&a instanceof a&&j.isFunction(o)&&o instanceof o))return!1;r.push(n),e.push(t);var c=0,f=!0;if("[object Array]"==u){if(c=n.length,f=c==t.length)for(;c--&&(f=S(n[c],t[c],r,e)););}else{for(var s in n)if(j.has(n,s)&&(c++,!(f=j.has(t,s)&&S(n[s],t[s],r,e))))break;if(f){for(s in t)if(j.has(t,s)&&!c--)break;f=!c}}return r.pop(),e.pop(),f};j.isEqual=function(n,t){return S(n,t,[],[])},j.isEmpty=function(n){if(null==n)return!0;if(j.isArray(n)||j.isString(n))return 0===n.length;for(var t in n)if(j.has(n,t))return!1;return!0},j.isElement=function(n){return!(!n||1!==n.nodeType)},j.isArray=x||function(n){return"[object Array]"==l.call(n)},j.isObject=function(n){return n===Object(n)},A(["Arguments","Function","String","Number","Date","RegExp"],function(n){j["is"+n]=function(t){return l.call(t)=="[object "+n+"]"}}),j.isArguments(arguments)||(j.isArguments=function(n){return!(!n||!j.has(n,"callee"))}),"function"!=typeof/./&&(j.isFunction=function(n){return"function"==typeof n}),j.isFinite=function(n){return isFinite(n)&&!isNaN(parseFloat(n))},j.isNaN=function(n){return j.isNumber(n)&&n!=+n},j.isBoolean=function(n){return n===!0||n===!1||"[object Boolean]"==l.call(n)},j.isNull=function(n){return null===n},j.isUndefined=function(n){return n===void 0},j.has=function(n,t){return f.call(n,t)},j.noConflict=function(){return n._=t,this},j.identity=function(n){return n},j.times=function(n,t,r){for(var e=Array(Math.max(0,n)),u=0;n>u;u++)e[u]=t.call(r,u);return e},j.random=function(n,t){return null==t&&(t=n,n=0),n+Math.floor(Math.random()*(t-n+1))};var I={escape:{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;"}};I.unescape=j.invert(I.escape);var T={escape:new RegExp("["+j.keys(I.escape).join("")+"]","g"),unescape:new RegExp("("+j.keys(I.unescape).join("|")+")","g")};j.each(["escape","unescape"],function(n){j[n]=function(t){return null==t?"":(""+t).replace(T[n],function(t){return I[n][t]})}}),j.result=function(n,t){if(null==n)return void 0;var r=n[t];return j.isFunction(r)?r.call(n):r},j.mixin=function(n){A(j.functions(n),function(t){var r=j[t]=n[t];j.prototype[t]=function(){var n=[this._wrapped];return a.apply(n,arguments),z.call(this,r.apply(j,n))}})};var N=0;j.uniqueId=function(n){var t=++N+"";return n?n+t:t},j.templateSettings={evaluate:/<%([\s\S]+?)%>/g,interpolate:/<%=([\s\S]+?)%>/g,escape:/<%-([\s\S]+?)%>/g};var q=/(.)^/,B={"'":"'","\\":"\\","\r":"r","\n":"n","	":"t","\u2028":"u2028","\u2029":"u2029"},D=/\\|'|\r|\n|\t|\u2028|\u2029/g;j.template=function(n,t,r){var e;r=j.defaults({},r,j.templateSettings);var u=new RegExp([(r.escape||q).source,(r.interpolate||q).source,(r.evaluate||q).source].join("|")+"|$","g"),i=0,a="__p+='";n.replace(u,function(t,r,e,u,o){return a+=n.slice(i,o).replace(D,function(n){return"\\"+B[n]}),r&&(a+="'+\n((__t=("+r+"))==null?'':_.escape(__t))+\n'"),e&&(a+="'+\n((__t=("+e+"))==null?'':__t)+\n'"),u&&(a+="';\n"+u+"\n__p+='"),i=o+t.length,t}),a+="';\n",r.variable||(a="with(obj||{}){\n"+a+"}\n"),a="var __t,__p='',__j=Array.prototype.join,"+"print=function(){__p+=__j.call(arguments,'');};\n"+a+"return __p;\n";try{e=new Function(r.variable||"obj","_",a)}catch(o){throw o.source=a,o}if(t)return e(t,j);var c=function(n){return e.call(this,n,j)};return c.source="function("+(r.variable||"obj")+"){\n"+a+"}",c},j.chain=function(n){return j(n).chain()};var z=function(n){return this._chain?j(n).chain():n};j.mixin(j),A(["pop","push","reverse","shift","sort","splice","unshift"],function(n){var t=e[n];j.prototype[n]=function(){var r=this._wrapped;return t.apply(r,arguments),"shift"!=n&&"splice"!=n||0!==r.length||delete r[0],z.call(this,r)}}),A(["concat","join","slice"],function(n){var t=e[n];j.prototype[n]=function(){return z.call(this,t.apply(this._wrapped,arguments))}}),j.extend(j.prototype,{chain:function(){return this._chain=!0,this},value:function(){return this._wrapped}})}).call(this);
-//# sourceMappingURL=underscore-min.map;
-tfw.define("underscore", (function (global) {
-    return function () {
-        var ret, fn;
-        return ret || global._;
-    };
-}(this)));
-
 /*!
  * jQuery JavaScript Library v1.8.3 -deprecated,-effects,-dimensions
  * http://jquery.com/
@@ -10741,6 +10728,1072 @@ tfw.define('jquery_noconflict',['jquery'], function($){
    return $.noConflict(true);
 });
 
+//     Underscore.js 1.3.3
+//     (c) 2009-2012 Jeremy Ashkenas, DocumentCloud Inc.
+//     Underscore is freely distributable under the MIT license.
+//     Portions of Underscore are inspired or borrowed from Prototype,
+//     Oliver Steele's Functional, and John Resig's Micro-Templating.
+//     For all details and documentation:
+//     http://documentcloud.github.com/underscore
+
+(function() {
+
+  // Baseline setup
+  // --------------
+
+  // Establish the root object, `window` in the browser, or `global` on the server.
+  var root = this;
+
+  // Save the previous value of the `_` variable.
+  var previousUnderscore = root._;
+
+  // Establish the object that gets returned to break out of a loop iteration.
+  var breaker = {};
+
+  // Save bytes in the minified (but not gzipped) version:
+  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+
+  // Create quick reference variables for speed access to core prototypes.
+  var slice            = ArrayProto.slice,
+    unshift          = ArrayProto.unshift,
+    toString         = ObjProto.toString,
+    hasOwnProperty   = ObjProto.hasOwnProperty;
+
+  // All **ECMAScript 5** native function implementations that we hope to use
+  // are declared here.
+  var
+    nativeForEach      = ArrayProto.forEach,
+    nativeMap          = ArrayProto.map,
+    nativeReduce       = ArrayProto.reduce,
+    nativeReduceRight  = ArrayProto.reduceRight,
+    nativeFilter       = ArrayProto.filter,
+    nativeEvery        = ArrayProto.every,
+    nativeSome         = ArrayProto.some,
+    nativeIndexOf      = ArrayProto.indexOf,
+    nativeLastIndexOf  = ArrayProto.lastIndexOf,
+    nativeIsArray      = Array.isArray,
+    nativeKeys         = Object.keys,
+    nativeBind         = FuncProto.bind;
+
+  // Create a safe reference to the Underscore object for use below.
+  var _ = function(obj) { return new wrapper(obj); };
+
+  // Export the Underscore object for **Node.js**, with
+  // backwards-compatibility for the old `require()` API. If we're in
+  // the browser, add `_` as a global object via a string identifier,
+  // for Closure Compiler "advanced" mode.
+  if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+      exports = module.exports = _;
+    }
+    exports._ = _;
+  } else {
+    root['_'] = _;
+  }
+
+  // Current version.
+  _.VERSION = '1.3.3';
+
+  // Collection Functions
+  // --------------------
+
+  // The cornerstone, an `each` implementation, aka `forEach`.
+  // Handles objects with the built-in `forEach`, arrays, and raw objects.
+  // Delegates to **ECMAScript 5**'s native `forEach` if available.
+  var each = _.each = _.forEach = function(obj, iterator, context) {
+    if (obj == null) return;
+    if (nativeForEach && obj.forEach === nativeForEach) {
+      obj.forEach(iterator, context);
+    } else if (obj.length === +obj.length) {
+      for (var i = 0, l = obj.length; i < l; i++) {
+        if (i in obj && iterator.call(context, obj[i], i, obj) === breaker) return;
+      }
+    } else {
+      for (var key in obj) {
+        if (_.has(obj, key)) {
+          if (iterator.call(context, obj[key], key, obj) === breaker) return;
+        }
+      }
+    }
+  };
+
+  // Return the results of applying the iterator to each element.
+  // Delegates to **ECMAScript 5**'s native `map` if available.
+  _.map = _.collect = function(obj, iterator, context) {
+    var results = [];
+    if (obj == null) return results;
+    if (nativeMap && obj.map === nativeMap) return obj.map(iterator, context);
+    each(obj, function(value, index, list) {
+      results[results.length] = iterator.call(context, value, index, list);
+    });
+    if (obj.length === +obj.length) results.length = obj.length;
+    return results;
+  };
+
+  // **Reduce** builds up a single result from a list of values, aka `inject`,
+  // or `foldl`. Delegates to **ECMAScript 5**'s native `reduce` if available.
+  _.reduce = _.foldl = _.inject = function(obj, iterator, memo, context) {
+    var initial = arguments.length > 2;
+    if (obj == null) obj = [];
+    if (nativeReduce && obj.reduce === nativeReduce) {
+      if (context) iterator = _.bind(iterator, context);
+      return initial ? obj.reduce(iterator, memo) : obj.reduce(iterator);
+    }
+    each(obj, function(value, index, list) {
+      if (!initial) {
+        memo = value;
+        initial = true;
+      } else {
+        memo = iterator.call(context, memo, value, index, list);
+      }
+    });
+    if (!initial) throw new TypeError('Reduce of empty array with no initial value');
+    return memo;
+  };
+
+  // The right-associative version of reduce, also known as `foldr`.
+  // Delegates to **ECMAScript 5**'s native `reduceRight` if available.
+  _.reduceRight = _.foldr = function(obj, iterator, memo, context) {
+    var initial = arguments.length > 2;
+    if (obj == null) obj = [];
+    if (nativeReduceRight && obj.reduceRight === nativeReduceRight) {
+      if (context) iterator = _.bind(iterator, context);
+      return initial ? obj.reduceRight(iterator, memo) : obj.reduceRight(iterator);
+    }
+    var reversed = _.toArray(obj).reverse();
+    if (context && !initial) iterator = _.bind(iterator, context);
+    return initial ? _.reduce(reversed, iterator, memo, context) : _.reduce(reversed, iterator);
+  };
+
+  // Return the first value which passes a truth test. Aliased as `detect`.
+  _.find = _.detect = function(obj, iterator, context) {
+    var result;
+    any(obj, function(value, index, list) {
+      if (iterator.call(context, value, index, list)) {
+        result = value;
+        return true;
+      }
+    });
+    return result;
+  };
+
+  // Return all the elements that pass a truth test.
+  // Delegates to **ECMAScript 5**'s native `filter` if available.
+  // Aliased as `select`.
+  _.filter = _.select = function(obj, iterator, context) {
+    var results = [];
+    if (obj == null) return results;
+    if (nativeFilter && obj.filter === nativeFilter) return obj.filter(iterator, context);
+    each(obj, function(value, index, list) {
+      if (iterator.call(context, value, index, list)) results[results.length] = value;
+    });
+    return results;
+  };
+
+  // Return all the elements for which a truth test fails.
+  _.reject = function(obj, iterator, context) {
+    var results = [];
+    if (obj == null) return results;
+    each(obj, function(value, index, list) {
+      if (!iterator.call(context, value, index, list)) results[results.length] = value;
+    });
+    return results;
+  };
+
+  // Determine whether all of the elements match a truth test.
+  // Delegates to **ECMAScript 5**'s native `every` if available.
+  // Aliased as `all`.
+  _.every = _.all = function(obj, iterator, context) {
+    var result = true;
+    if (obj == null) return result;
+    if (nativeEvery && obj.every === nativeEvery) return obj.every(iterator, context);
+    each(obj, function(value, index, list) {
+      if (!(result = result && iterator.call(context, value, index, list))) return breaker;
+    });
+    return !!result;
+  };
+
+  // Determine if at least one element in the object matches a truth test.
+  // Delegates to **ECMAScript 5**'s native `some` if available.
+  // Aliased as `any`.
+  var any = _.some = _.any = function(obj, iterator, context) {
+    iterator || (iterator = _.identity);
+    var result = false;
+    if (obj == null) return result;
+    if (nativeSome && obj.some === nativeSome) return obj.some(iterator, context);
+    each(obj, function(value, index, list) {
+      if (result || (result = iterator.call(context, value, index, list))) return breaker;
+    });
+    return !!result;
+  };
+
+  // Determine if a given value is included in the array or object using `===`.
+  // Aliased as `contains`.
+  _.include = _.contains = function(obj, target) {
+    var found = false;
+    if (obj == null) return found;
+    if (nativeIndexOf && obj.indexOf === nativeIndexOf) return obj.indexOf(target) != -1;
+    found = any(obj, function(value) {
+      return value === target;
+    });
+    return found;
+  };
+
+  // Invoke a method (with arguments) on every item in a collection.
+  _.invoke = function(obj, method) {
+    var args = slice.call(arguments, 2);
+    return _.map(obj, function(value) {
+      return (_.isFunction(method) ? method || value : value[method]).apply(value, args);
+    });
+  };
+
+  // Convenience version of a common use case of `map`: fetching a property.
+  _.pluck = function(obj, key) {
+    return _.map(obj, function(value){ return value[key]; });
+  };
+
+  // Return the maximum element or (element-based computation).
+  _.max = function(obj, iterator, context) {
+    if (!iterator && _.isArray(obj) && obj[0] === +obj[0]) return Math.max.apply(Math, obj);
+    if (!iterator && _.isEmpty(obj)) return -Infinity;
+    var result = {computed : -Infinity};
+    each(obj, function(value, index, list) {
+      var computed = iterator ? iterator.call(context, value, index, list) : value;
+      computed >= result.computed && (result = {value : value, computed : computed});
+    });
+    return result.value;
+  };
+
+  // Return the minimum element (or element-based computation).
+  _.min = function(obj, iterator, context) {
+    if (!iterator && _.isArray(obj) && obj[0] === +obj[0]) return Math.min.apply(Math, obj);
+    if (!iterator && _.isEmpty(obj)) return Infinity;
+    var result = {computed : Infinity};
+    each(obj, function(value, index, list) {
+      var computed = iterator ? iterator.call(context, value, index, list) : value;
+      computed < result.computed && (result = {value : value, computed : computed});
+    });
+    return result.value;
+  };
+
+  // Shuffle an array.
+  _.shuffle = function(obj) {
+    var shuffled = [], rand;
+    each(obj, function(value, index, list) {
+      rand = Math.floor(Math.random() * (index + 1));
+      shuffled[index] = shuffled[rand];
+      shuffled[rand] = value;
+    });
+    return shuffled;
+  };
+
+  // Sort the object's values by a criterion produced by an iterator.
+  _.sortBy = function(obj, val, context) {
+    var iterator = _.isFunction(val) ? val : function(obj) { return obj[val]; };
+    return _.pluck(_.map(obj, function(value, index, list) {
+      return {
+        value : value,
+        criteria : iterator.call(context, value, index, list)
+      };
+    }).sort(function(left, right) {
+        var a = left.criteria, b = right.criteria;
+        if (a === void 0) return 1;
+        if (b === void 0) return -1;
+        return a < b ? -1 : a > b ? 1 : 0;
+      }), 'value');
+  };
+
+  // Groups the object's values by a criterion. Pass either a string attribute
+  // to group by, or a function that returns the criterion.
+  _.groupBy = function(obj, val) {
+    var result = {};
+    var iterator = _.isFunction(val) ? val : function(obj) { return obj[val]; };
+    each(obj, function(value, index) {
+      var key = iterator(value, index);
+      (result[key] || (result[key] = [])).push(value);
+    });
+    return result;
+  };
+
+  // Use a comparator function to figure out at what index an object should
+  // be inserted so as to maintain order. Uses binary search.
+  _.sortedIndex = function(array, obj, iterator) {
+    iterator || (iterator = _.identity);
+    var low = 0, high = array.length;
+    while (low < high) {
+      var mid = (low + high) >> 1;
+      iterator(array[mid]) < iterator(obj) ? low = mid + 1 : high = mid;
+    }
+    return low;
+  };
+
+  // Safely convert anything iterable into a real, live array.
+  _.toArray = function(obj) {
+    if (!obj)                                     return [];
+    if (_.isArray(obj))                           return slice.call(obj);
+    if (_.isArguments(obj))                       return slice.call(obj);
+    if (obj.toArray && _.isFunction(obj.toArray)) return obj.toArray();
+    return _.values(obj);
+  };
+
+  // Return the number of elements in an object.
+  _.size = function(obj) {
+    return _.isArray(obj) ? obj.length : _.keys(obj).length;
+  };
+
+  // Array Functions
+  // ---------------
+
+  // Get the first element of an array. Passing **n** will return the first N
+  // values in the array. Aliased as `head` and `take`. The **guard** check
+  // allows it to work with `_.map`.
+  _.first = _.head = _.take = function(array, n, guard) {
+    return (n != null) && !guard ? slice.call(array, 0, n) : array[0];
+  };
+
+  // Returns everything but the last entry of the array. Especcialy useful on
+  // the arguments object. Passing **n** will return all the values in
+  // the array, excluding the last N. The **guard** check allows it to work with
+  // `_.map`.
+  _.initial = function(array, n, guard) {
+    return slice.call(array, 0, array.length - ((n == null) || guard ? 1 : n));
+  };
+
+  // Get the last element of an array. Passing **n** will return the last N
+  // values in the array. The **guard** check allows it to work with `_.map`.
+  _.last = function(array, n, guard) {
+    if ((n != null) && !guard) {
+      return slice.call(array, Math.max(array.length - n, 0));
+    } else {
+      return array[array.length - 1];
+    }
+  };
+
+  // Returns everything but the first entry of the array. Aliased as `tail`.
+  // Especially useful on the arguments object. Passing an **index** will return
+  // the rest of the values in the array from that index onward. The **guard**
+  // check allows it to work with `_.map`.
+  _.rest = _.tail = function(array, index, guard) {
+    return slice.call(array, (index == null) || guard ? 1 : index);
+  };
+
+  // Trim out all falsy values from an array.
+  _.compact = function(array) {
+    return _.filter(array, function(value){ return !!value; });
+  };
+
+  // Return a completely flattened version of an array.
+  _.flatten = function(array, shallow) {
+    return _.reduce(array, function(memo, value) {
+      if (_.isArray(value)) return memo.concat(shallow ? value : _.flatten(value));
+      memo[memo.length] = value;
+      return memo;
+    }, []);
+  };
+
+  // Return a version of the array that does not contain the specified value(s).
+  _.without = function(array) {
+    return _.difference(array, slice.call(arguments, 1));
+  };
+
+  // Produce a duplicate-free version of the array. If the array has already
+  // been sorted, you have the option of using a faster algorithm.
+  // Aliased as `unique`.
+  _.uniq = _.unique = function(array, isSorted, iterator) {
+    var initial = iterator ? _.map(array, iterator) : array;
+    var results = [];
+    // The `isSorted` flag is irrelevant if the array only contains two elements.
+    if (array.length < 3) isSorted = true;
+    _.reduce(initial, function (memo, value, index) {
+      if (isSorted ? _.last(memo) !== value || !memo.length : !_.include(memo, value)) {
+        memo.push(value);
+        results.push(array[index]);
+      }
+      return memo;
+    }, []);
+    return results;
+  };
+
+  // Produce an array that contains the union: each distinct element from all of
+  // the passed-in arrays.
+  _.union = function() {
+    return _.uniq(_.flatten(arguments, true));
+  };
+
+  // Produce an array that contains every item shared between all the
+  // passed-in arrays. (Aliased as "intersect" for back-compat.)
+  _.intersection = _.intersect = function(array) {
+    var rest = slice.call(arguments, 1);
+    return _.filter(_.uniq(array), function(item) {
+      return _.every(rest, function(other) {
+        return _.indexOf(other, item) >= 0;
+      });
+    });
+  };
+
+  // Take the difference between one array and a number of other arrays.
+  // Only the elements present in just the first array will remain.
+  _.difference = function(array) {
+    var rest = _.flatten(slice.call(arguments, 1), true);
+    return _.filter(array, function(value){ return !_.include(rest, value); });
+  };
+
+  // Zip together multiple lists into a single array -- elements that share
+  // an index go together.
+  _.zip = function() {
+    var args = slice.call(arguments);
+    var length = _.max(_.pluck(args, 'length'));
+    var results = new Array(length);
+    for (var i = 0; i < length; i++) results[i] = _.pluck(args, "" + i);
+    return results;
+  };
+
+  // If the browser doesn't supply us with indexOf (I'm looking at you, **MSIE**),
+  // we need this function. Return the position of the first occurrence of an
+  // item in an array, or -1 if the item is not included in the array.
+  // Delegates to **ECMAScript 5**'s native `indexOf` if available.
+  // If the array is large and already in sort order, pass `true`
+  // for **isSorted** to use binary search.
+  _.indexOf = function(array, item, isSorted) {
+    if (array == null) return -1;
+    var i, l;
+    if (isSorted) {
+      i = _.sortedIndex(array, item);
+      return array[i] === item ? i : -1;
+    }
+    if (nativeIndexOf && array.indexOf === nativeIndexOf) return array.indexOf(item);
+    for (i = 0, l = array.length; i < l; i++) if (i in array && array[i] === item) return i;
+    return -1;
+  };
+
+  // Delegates to **ECMAScript 5**'s native `lastIndexOf` if available.
+  _.lastIndexOf = function(array, item) {
+    if (array == null) return -1;
+    if (nativeLastIndexOf && array.lastIndexOf === nativeLastIndexOf) return array.lastIndexOf(item);
+    var i = array.length;
+    while (i--) if (i in array && array[i] === item) return i;
+    return -1;
+  };
+
+  // Generate an integer Array containing an arithmetic progression. A port of
+  // the native Python `range()` function. See
+  // [the Python documentation](http://docs.python.org/library/functions.html#range).
+  _.range = function(start, stop, step) {
+    if (arguments.length <= 1) {
+      stop = start || 0;
+      start = 0;
+    }
+    step = arguments[2] || 1;
+
+    var len = Math.max(Math.ceil((stop - start) / step), 0);
+    var idx = 0;
+    var range = new Array(len);
+
+    while(idx < len) {
+      range[idx++] = start;
+      start += step;
+    }
+
+    return range;
+  };
+
+  // Function (ahem) Functions
+  // ------------------
+
+  // Reusable constructor function for prototype setting.
+  var ctor = function(){};
+
+  // Create a function bound to a given object (assigning `this`, and arguments,
+  // optionally). Binding with arguments is also known as `curry`.
+  // Delegates to **ECMAScript 5**'s native `Function.bind` if available.
+  // We check for `func.bind` first, to fail fast when `func` is undefined.
+  _.bind = function bind(func, context) {
+    var bound, args;
+    if (func.bind === nativeBind && nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
+    if (!_.isFunction(func)) throw new TypeError;
+    args = slice.call(arguments, 2);
+    return bound = function() {
+      if (!(this instanceof bound)) return func.apply(context, args.concat(slice.call(arguments)));
+      ctor.prototype = func.prototype;
+      var self = new ctor;
+      var result = func.apply(self, args.concat(slice.call(arguments)));
+      if (Object(result) === result) return result;
+      return self;
+    };
+  };
+
+  // Bind all of an object's methods to that object. Useful for ensuring that
+  // all callbacks defined on an object belong to it.
+  _.bindAll = function(obj) {
+    var funcs = slice.call(arguments, 1);
+    if (funcs.length == 0) funcs = _.functions(obj);
+    each(funcs, function(f) { obj[f] = _.bind(obj[f], obj); });
+    return obj;
+  };
+
+  // Memoize an expensive function by storing its results.
+  _.memoize = function(func, hasher) {
+    var memo = {};
+    hasher || (hasher = _.identity);
+    return function() {
+      var key = hasher.apply(this, arguments);
+      return _.has(memo, key) ? memo[key] : (memo[key] = func.apply(this, arguments));
+    };
+  };
+
+  // Delays a function for the given number of milliseconds, and then calls
+  // it with the arguments supplied.
+  _.delay = function(func, wait) {
+    var args = slice.call(arguments, 2);
+    return setTimeout(function(){ return func.apply(null, args); }, wait);
+  };
+
+  // Defers a function, scheduling it to run after the current call stack has
+  // cleared.
+  _.defer = function(func) {
+    return _.delay.apply(_, [func, 1].concat(slice.call(arguments, 1)));
+  };
+
+  // Returns a function, that, when invoked, will only be triggered at most once
+  // during a given window of time.
+  _.throttle = function(func, wait) {
+    var context, args, timeout, throttling, more, result;
+    var whenDone = _.debounce(function(){ more = throttling = false; }, wait);
+    return function() {
+      context = this; args = arguments;
+      var later = function() {
+        timeout = null;
+        if (more) func.apply(context, args);
+        whenDone();
+      };
+      if (!timeout) timeout = setTimeout(later, wait);
+      if (throttling) {
+        more = true;
+      } else {
+        result = func.apply(context, args);
+      }
+      whenDone();
+      throttling = true;
+      return result;
+    };
+  };
+
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds. If `immediate` is passed, trigger the function on the
+  // leading edge, instead of the trailing.
+  _.debounce = function(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      if (immediate && !timeout) func.apply(context, args);
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
+  // Returns a function that will be executed at most one time, no matter how
+  // often you call it. Useful for lazy initialization.
+  _.once = function(func) {
+    var ran = false, memo;
+    return function() {
+      if (ran) return memo;
+      ran = true;
+      return memo = func.apply(this, arguments);
+    };
+  };
+
+  // Returns the first function passed as an argument to the second,
+  // allowing you to adjust arguments, run code before and after, and
+  // conditionally execute the original function.
+  _.wrap = function(func, wrapper) {
+    return function() {
+      var args = [func].concat(slice.call(arguments, 0));
+      return wrapper.apply(this, args);
+    };
+  };
+
+  // Returns a function that is the composition of a list of functions, each
+  // consuming the return value of the function that follows.
+  _.compose = function() {
+    var funcs = arguments;
+    return function() {
+      var args = arguments;
+      for (var i = funcs.length - 1; i >= 0; i--) {
+        args = [funcs[i].apply(this, args)];
+      }
+      return args[0];
+    };
+  };
+
+  // Returns a function that will only be executed after being called N times.
+  _.after = function(times, func) {
+    if (times <= 0) return func();
+    return function() {
+      if (--times < 1) { return func.apply(this, arguments); }
+    };
+  };
+
+  // Object Functions
+  // ----------------
+
+  // Retrieve the names of an object's properties.
+  // Delegates to **ECMAScript 5**'s native `Object.keys`
+  _.keys = nativeKeys || function(obj) {
+    if (obj !== Object(obj)) throw new TypeError('Invalid object');
+    var keys = [];
+    for (var key in obj) if (_.has(obj, key)) keys[keys.length] = key;
+    return keys;
+  };
+
+  // Retrieve the values of an object's properties.
+  _.values = function(obj) {
+    return _.map(obj, _.identity);
+  };
+
+  // Return a sorted list of the function names available on the object.
+  // Aliased as `methods`
+  _.functions = _.methods = function(obj) {
+    var names = [];
+    for (var key in obj) {
+      if (_.isFunction(obj[key])) names.push(key);
+    }
+    return names.sort();
+  };
+
+  // Extend a given object with all the properties in passed-in object(s).
+  _.extend = function(obj) {
+    each(slice.call(arguments, 1), function(source) {
+      for (var prop in source) {
+        obj[prop] = source[prop];
+      }
+    });
+    return obj;
+  };
+
+  // Return a copy of the object only containing the whitelisted properties.
+  _.pick = function(obj) {
+    var result = {};
+    each(_.flatten(slice.call(arguments, 1)), function(key) {
+      if (key in obj) result[key] = obj[key];
+    });
+    return result;
+  };
+
+  // Fill in a given object with default properties.
+  _.defaults = function(obj) {
+    each(slice.call(arguments, 1), function(source) {
+      for (var prop in source) {
+        if (obj[prop] == null) obj[prop] = source[prop];
+      }
+    });
+    return obj;
+  };
+
+  // Create a (shallow-cloned) duplicate of an object.
+  _.clone = function(obj) {
+    if (!_.isObject(obj)) return obj;
+    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+  };
+
+  // Invokes interceptor with the obj, and then returns obj.
+  // The primary purpose of this method is to "tap into" a method chain, in
+  // order to perform operations on intermediate results within the chain.
+  _.tap = function(obj, interceptor) {
+    interceptor(obj);
+    return obj;
+  };
+
+  // Internal recursive comparison function.
+  function eq(a, b, stack) {
+    // Identical objects are equal. `0 === -0`, but they aren't identical.
+    // See the Harmony `egal` proposal: http://wiki.ecmascript.org/doku.php?id=harmony:egal.
+    if (a === b) return a !== 0 || 1 / a == 1 / b;
+    // A strict comparison is necessary because `null == undefined`.
+    if (a == null || b == null) return a === b;
+    // Unwrap any wrapped objects.
+    if (a._chain) a = a._wrapped;
+    if (b._chain) b = b._wrapped;
+    // Invoke a custom `isEqual` method if one is provided.
+    if (a.isEqual && _.isFunction(a.isEqual)) return a.isEqual(b);
+    if (b.isEqual && _.isFunction(b.isEqual)) return b.isEqual(a);
+    // Compare `[[Class]]` names.
+    var className = toString.call(a);
+    if (className != toString.call(b)) return false;
+    switch (className) {
+      // Strings, numbers, dates, and booleans are compared by value.
+      case '[object String]':
+        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+        // equivalent to `new String("5")`.
+        return a == String(b);
+      case '[object Number]':
+        // `NaN`s are equivalent, but non-reflexive. An `egal` comparison is performed for
+        // other numeric values.
+        return a != +a ? b != +b : (a == 0 ? 1 / a == 1 / b : a == +b);
+      case '[object Date]':
+      case '[object Boolean]':
+        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+        // millisecond representations. Note that invalid dates with millisecond representations
+        // of `NaN` are not equivalent.
+        return +a == +b;
+      // RegExps are compared by their source patterns and flags.
+      case '[object RegExp]':
+        return a.source == b.source &&
+          a.global == b.global &&
+          a.multiline == b.multiline &&
+          a.ignoreCase == b.ignoreCase;
+    }
+    if (typeof a != 'object' || typeof b != 'object') return false;
+    // Assume equality for cyclic structures. The algorithm for detecting cyclic
+    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+    var length = stack.length;
+    while (length--) {
+      // Linear search. Performance is inversely proportional to the number of
+      // unique nested structures.
+      if (stack[length] == a) return true;
+    }
+    // Add the first object to the stack of traversed objects.
+    stack.push(a);
+    var size = 0, result = true;
+    // Recursively compare objects and arrays.
+    if (className == '[object Array]') {
+      // Compare array lengths to determine if a deep comparison is necessary.
+      size = a.length;
+      result = size == b.length;
+      if (result) {
+        // Deep compare the contents, ignoring non-numeric properties.
+        while (size--) {
+          // Ensure commutative equality for sparse arrays.
+          if (!(result = size in a == size in b && eq(a[size], b[size], stack))) break;
+        }
+      }
+    } else {
+      // Objects with different constructors are not equivalent.
+      if ('constructor' in a != 'constructor' in b || a.constructor != b.constructor) return false;
+      // Deep compare objects.
+      for (var key in a) {
+        if (_.has(a, key)) {
+          // Count the expected number of properties.
+          size++;
+          // Deep compare each member.
+          if (!(result = _.has(b, key) && eq(a[key], b[key], stack))) break;
+        }
+      }
+      // Ensure that both objects contain the same number of properties.
+      if (result) {
+        for (key in b) {
+          if (_.has(b, key) && !(size--)) break;
+        }
+        result = !size;
+      }
+    }
+    // Remove the first object from the stack of traversed objects.
+    stack.pop();
+    return result;
+  }
+
+  // Perform a deep comparison to check if two objects are equal.
+  _.isEqual = function(a, b) {
+    return eq(a, b, []);
+  };
+
+  // Is a given array, string, or object empty?
+  // An "empty" object has no enumerable own-properties.
+  _.isEmpty = function(obj) {
+    if (obj == null) return true;
+    if (_.isArray(obj) || _.isString(obj)) return obj.length === 0;
+    for (var key in obj) if (_.has(obj, key)) return false;
+    return true;
+  };
+
+  // Is a given value a DOM element?
+  _.isElement = function(obj) {
+    return !!(obj && obj.nodeType == 1);
+  };
+
+  // Is a given value an array?
+  // Delegates to ECMA5's native Array.isArray
+  _.isArray = nativeIsArray || function(obj) {
+    return toString.call(obj) == '[object Array]';
+  };
+
+  // Is a given variable an object?
+  _.isObject = function(obj) {
+    return obj === Object(obj);
+  };
+
+  // Is a given variable an arguments object?
+  _.isArguments = function(obj) {
+    return toString.call(obj) == '[object Arguments]';
+  };
+  if (!_.isArguments(arguments)) {
+    _.isArguments = function(obj) {
+      return !!(obj && _.has(obj, 'callee'));
+    };
+  }
+
+  // Is a given value a function?
+  _.isFunction = function(obj) {
+    return toString.call(obj) == '[object Function]';
+  };
+
+  // Is a given value a string?
+  _.isString = function(obj) {
+    return toString.call(obj) == '[object String]';
+  };
+
+  // Is a given value a number?
+  _.isNumber = function(obj) {
+    return toString.call(obj) == '[object Number]';
+  };
+
+  // Is a given object a finite number?
+  _.isFinite = function(obj) {
+    return _.isNumber(obj) && isFinite(obj);
+  };
+
+  // Is the given value `NaN`?
+  _.isNaN = function(obj) {
+    // `NaN` is the only value for which `===` is not reflexive.
+    return obj !== obj;
+  };
+
+  // Is a given value a boolean?
+  _.isBoolean = function(obj) {
+    return obj === true || obj === false || toString.call(obj) == '[object Boolean]';
+  };
+
+  // Is a given value a date?
+  _.isDate = function(obj) {
+    return toString.call(obj) == '[object Date]';
+  };
+
+  // Is the given value a regular expression?
+  _.isRegExp = function(obj) {
+    return toString.call(obj) == '[object RegExp]';
+  };
+
+  // Is a given value equal to null?
+  _.isNull = function(obj) {
+    return obj === null;
+  };
+
+  // Is a given variable undefined?
+  _.isUndefined = function(obj) {
+    return obj === void 0;
+  };
+
+  // Has own property?
+  _.has = function(obj, key) {
+    return hasOwnProperty.call(obj, key);
+  };
+
+  // Utility Functions
+  // -----------------
+
+  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
+  // previous owner. Returns a reference to the Underscore object.
+  _.noConflict = function() {
+    root._ = previousUnderscore;
+    return this;
+  };
+
+  // Keep the identity function around for default iterators.
+  _.identity = function(value) {
+    return value;
+  };
+
+  // Run a function **n** times.
+  _.times = function (n, iterator, context) {
+    for (var i = 0; i < n; i++) iterator.call(context, i);
+  };
+
+  // Escape a string for HTML interpolation.
+  _.escape = function(string) {
+    return (''+string).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;').replace(/\//g,'&#x2F;');
+  };
+
+  // If the value of the named property is a function then invoke it;
+  // otherwise, return it.
+  _.result = function(object, property) {
+    if (object == null) return null;
+    var value = object[property];
+    return _.isFunction(value) ? value.call(object) : value;
+  };
+
+  // Add your own custom functions to the Underscore object, ensuring that
+  // they're correctly added to the OOP wrapper as well.
+  _.mixin = function(obj) {
+    each(_.functions(obj), function(name){
+      addToWrapper(name, _[name] = obj[name]);
+    });
+  };
+
+  // Generate a unique integer id (unique within the entire client session).
+  // Useful for temporary DOM ids.
+  var idCounter = 0;
+  _.uniqueId = function(prefix) {
+    var id = idCounter++;
+    return prefix ? prefix + id : id;
+  };
+
+  // By default, Underscore uses ERB-style template delimiters, change the
+  // following template settings to use alternative delimiters.
+  _.templateSettings = {
+    evaluate    : /<%([\s\S]+?)%>/g,
+    interpolate : /<%=([\s\S]+?)%>/g,
+    escape      : /<%-([\s\S]+?)%>/g
+  };
+
+  // When customizing `templateSettings`, if you don't want to define an
+  // interpolation, evaluation or escaping regex, we need one that is
+  // guaranteed not to match.
+  var noMatch = /.^/;
+
+  // Certain characters need to be escaped so that they can be put into a
+  // string literal.
+  var escapes = {
+    '\\': '\\',
+    "'": "'",
+    'r': '\r',
+    'n': '\n',
+    't': '\t',
+    'u2028': '\u2028',
+    'u2029': '\u2029'
+  };
+
+  for (var p in escapes) escapes[escapes[p]] = p;
+  var escaper = /\\|'|\r|\n|\t|\u2028|\u2029/g;
+  var unescaper = /\\(\\|'|r|n|t|u2028|u2029)/g;
+
+  // Within an interpolation, evaluation, or escaping, remove HTML escaping
+  // that had been previously added.
+  var unescape = function(code) {
+    return code.replace(unescaper, function(match, escape) {
+      return escapes[escape];
+    });
+  };
+
+  // JavaScript micro-templating, similar to John Resig's implementation.
+  // Underscore templating handles arbitrary delimiters, preserves whitespace,
+  // and correctly escapes quotes within interpolated code.
+  _.template = function(text, data, settings) {
+    settings = _.defaults(settings || {}, _.templateSettings);
+
+    // Compile the template source, taking care to escape characters that
+    // cannot be included in a string literal and then unescape them in code
+    // blocks.
+    var source = "__p+='" + text
+      .replace(escaper, function(match) {
+        return '\\' + escapes[match];
+      })
+      .replace(settings.escape || noMatch, function(match, code) {
+        return "'+\n_.escape(" + unescape(code) + ")+\n'";
+      })
+      .replace(settings.interpolate || noMatch, function(match, code) {
+        return "'+\n(" + unescape(code) + ")+\n'";
+      })
+      .replace(settings.evaluate || noMatch, function(match, code) {
+        return "';\n" + unescape(code) + "\n;__p+='";
+      }) + "';\n";
+
+    // If a variable is not specified, place data values in local scope.
+    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
+
+    source = "var __p='';" +
+      "var print=function(){__p+=Array.prototype.join.call(arguments, '')};\n" +
+      source + "return __p;\n";
+
+    var render = new Function(settings.variable || 'obj', '_', source);
+    if (data) return render(data, _);
+    var template = function(data) {
+      return render.call(this, data, _);
+    };
+
+    // Provide the compiled function source as a convenience for build time
+    // precompilation.
+    template.source = 'function(' + (settings.variable || 'obj') + '){\n' +
+      source + '}';
+
+    return template;
+  };
+
+  // Add a "chain" function, which will delegate to the wrapper.
+  _.chain = function(obj) {
+    return _(obj).chain();
+  };
+
+  // The OOP Wrapper
+  // ---------------
+
+  // If Underscore is called as a function, it returns a wrapped object that
+  // can be used OO-style. This wrapper holds altered versions of all the
+  // underscore functions. Wrapped objects may be chained.
+  var wrapper = function(obj) { this._wrapped = obj; };
+
+  // Expose `wrapper.prototype` as `_.prototype`
+  _.prototype = wrapper.prototype;
+
+  // Helper function to continue chaining intermediate results.
+  var result = function(obj, chain) {
+    return chain ? _(obj).chain() : obj;
+  };
+
+  // A method to easily add functions to the OOP wrapper.
+  var addToWrapper = function(name, func) {
+    wrapper.prototype[name] = function() {
+      var args = slice.call(arguments);
+      unshift.call(args, this._wrapped);
+      return result(func.apply(_, args), this._chain);
+    };
+  };
+
+  // Add all of the Underscore functions to the wrapper object.
+  _.mixin(_);
+
+  // Add all mutator Array functions to the wrapper.
+  each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+    var method = ArrayProto[name];
+    wrapper.prototype[name] = function() {
+      var wrapped = this._wrapped;
+      method.apply(wrapped, arguments);
+      var length = wrapped.length;
+      if ((name == 'shift' || name == 'splice') && length === 0) delete wrapped[0];
+      return result(wrapped, this._chain);
+    };
+  });
+
+  // Add all accessor Array functions to the wrapper.
+  each(['concat', 'join', 'slice'], function(name) {
+    var method = ArrayProto[name];
+    wrapper.prototype[name] = function() {
+      return result(method.apply(this._wrapped, arguments), this._chain);
+    };
+  });
+
+  // Start chaining a wrapped Underscore object.
+  wrapper.prototype.chain = function() {
+    this._chain = true;
+    return this;
+  };
+
+  // Extracts the result from a wrapped and chained object.
+  wrapper.prototype.value = function() {
+    return this._wrapped;
+  };
+
+}).call(this);
+tfw.define("underscore", (function (global) {
+    return function () {
+        var ret, fn;
+        return ret || global._;
+    };
+}(this)));
+
 //     Backbone.js 1.0.0
 
 //     (c) 2010-2011 Jeremy Ashkenas, DocumentCloud Inc.
@@ -12498,11 +13551,995 @@ tfw.define('tvp/data/GuideCollection',[
 	return GuideCollection;
 });
 
+tfw.define('tvp/View',[
+	"backbone"
+],
+
+	function(Backbone) {
+		/**
+		 * TVP\View class
+		 * This is the TVPView class: base class of most views
+		 *
+		 * @name TVPView
+		 * @class TVPView
+		 * @constructor
+		 * @return TVPView Object
+		 */
+		var TVPView = Backbone.View.extend({
+			templatePath: '',
+			path:'',
+		});
+
+		return TVPView;
+	});
+
+tfw.define('tvp/EventHandler',[
+	"backbone"
+],
+
+	function(Backbone) {
+    
+    var instance = null;
+    function EventHandler(){
+
+    };
+
+    EventHandler.prototype =  {};
+    EventHandler.prototype.constructor = EventHandler;
+
+    EventHandler.getInstance = function(){
+      if( instance === null ){
+        instance = _.extend({}, Backbone.Events);
+      }
+      return instance;
+    };
+
+    return EventHandler.getInstance();
+  });
+   
+tfw.define('tvp/player/Player',[
+  "jquery",
+	"tvp/View",
+  "tvp/EventHandler"
+],
+	function($, TVPView, EventHandler) {
+  /**
+   * Player class
+   * This is the Player class
+   * 
+   * @name Player
+   * @class Player
+   * @constructor
+   * @return Player Object
+   */   
+  var Player = TVPView.extend({
+
+    constructor: function (app, options) {
+      this.player = null;
+      this.interval = null;
+      this.videoId = 0;
+      this.videoEndingTriggered = false;
+      this.maximized  = null;
+			this.domReady = $.Deferred();
+      this.defaultQuality = "default";
+      this.loop = true;
+      this.callbacks = {
+        minimize: function() {},
+        maximize: function() {}
+      };
+
+      TVPView.call(this, app, options);
+    },
+
+    initialize: function(){
+      TVPView.prototype.initialize.call(this);
+      EventHandler.bind(Player.Events.VideoEnded, this.handleVideoEnded, this);
+			EventHandler.bind(Player.Events.VideoIdSet, this.handleVideoIdSet,this);
+    },
+
+		handleVideoEnded: function(e){
+			this.videoEnded = true;
+		},
+            
+		handleVideoIdSet: function(e){
+			this.videoEnded = false;
+		},
+
+    isMaximized: function(){
+      return this.maximized === true;
+    },
+
+    isMinimized: function(){
+      return this.maximized === false;
+    },
+
+    resize: function(width, height) {
+      throw new Error('Resize method must be implemented on the player');
+    },
+
+    isActive: function() {
+      throw new Error('isActive() must be implemented');
+    },
+
+    setMaximized:function(maxVal){
+      this.maximized = maxVal;
+    },
+            
+    toggleBars: function(state){
+      throw "Must be implemented";
+    },
+            
+		playerReady:function(){
+			throw('This needs to be implemented.')
+		},
+            
+    destroy: function(){
+      throw "must be implemented";
+    },
+
+		/**
+		 * Hides the player and stops it.
+		 * @return {*}
+		 */
+
+		stopPlayer:function(){
+			if(this.stop){
+				this.stop();
+			}
+		},
+
+    getVideoId: function(){
+      return this.videoId;
+    },
+
+    clearVideoId:function(){
+      this.videoId = false;
+      this.stopPlayer();
+      this.loadVideoCalled = false;
+    },
+
+    setLoop:function(toLoop){
+      this.loop = toLoop;
+    },
+
+    getLoop:function(){
+      return this.loop;
+    },
+
+    setVideoId: function(videoId){
+      this.videoId = videoId;
+    },
+    /**
+     Load a video via provider's ID
+
+     @param {string} id - The unique video id from the provider
+     */
+    loadVideoById: function(videoId){
+      throw "Method not implemented!";
+    },
+            
+    /**
+     Cue a video via provider's ID
+
+     @param {string} id - The unique video id from the provider
+     */
+    cueVideoById: function(videoId){
+      throw "Method not implemented!";
+    },
+
+    /**
+     Return the actual video quality of the current video.
+
+     @returns {string}
+     */
+    getPlaybackQuality: function(){
+      throw "Method not implemented!";
+    },
+
+    /**
+     Set the playback quality for the current video
+
+     @param {string} quality - Set the quality level based on a string
+     */
+    /*setPlaybackQuality: function(quality){
+      throw "Method not implemented!";
+    },*/
+
+    /**
+     Get an array of available quality levels
+
+     @returns {array} Returns an array of quality levels
+     */
+    getAvailableQualityLevels: function() {
+
+    },
+    
+    /**
+     Play the video. Plays the currently cued/loaded video. The final player state after this function executes will be playing.
+
+     @returns {undefined}
+     */
+    play: function(){
+      throw "Method not implemented!";
+    },
+
+    /**
+     Pauses the currently playing video. The final player state after this function executes will be paused
+     unless the player is in the ended (0) state when the function is called, in which case the player state will not
+     change.
+
+     @returns {undefined}
+     */
+    pause: function(){
+      throw "Method not implemented!";
+    },
+
+    /**
+     Mutes the player.
+
+     @returns {undefined}
+     */
+    mute: function(){
+      throw "Method not implemented!";
+    },
+
+    /**
+     Un-mutes the player.
+
+     @returns {undefined}
+     */
+    unmute: function(){
+      throw "Method not implemented!";
+    },
+
+    /**
+     Checks whether or not the player is muted.
+
+     @returns {boolean}
+     */
+    isMuted: function(){
+      throw "Method not implemented!";
+    },
+
+    /**
+     Seeks to a specified time in the video. If the player is paused when the function is called, it will
+     remain paused. If the function is called from another state (playing, video cued, etc.), the player
+     will play the video.
+
+     @returns {undefined}
+     */
+    seek: function(){
+      throw "Method not implemented!";
+    },
+
+    /**
+     Sets the volume. Accepts an integer between 0 and 100.
+
+     @param {integer} volume - 0 to 100
+     */
+    setVolume: function(volume){
+      throw "Method not implemented!";
+    },
+
+    /**
+     Returns the current volume level.
+
+     @returns {integer} volume - 0 to 100
+     */
+    getVolume: function(){
+      throw "Method not implemented!";
+    },
+    
+    /**
+     * Dispatch event with id
+     * 
+     * @param {integer} event id
+     * 
+     * @return void
+     */
+    dispatchEvent: function(id){
+      throw "Method must be implemented!";
+    },
+
+    /**
+     * Dispatch READY event with {}
+     *
+     * @param {object} {id, event}
+     *
+     * @return void
+     */
+    dispatchReadyEvent: function(e) {
+      throw "Method must be implemented!";
+    },
+
+    /**
+     * Dispatch ERROR event with {}
+     *
+     * @param {object} {id, event}
+     *
+     * @return void
+     */
+    dispatchErrorEvent: function(e) {
+      throw "Method must be implemented!";
+    },
+    
+    /**
+     * Checks whether internal player has been loaded
+     * 
+     * @return {boolean} TRUE if internal player loaded otherwise FALSE
+     */
+    isPlayerLoaded: function(){
+      throw "must be implemented";
+    },
+   
+    isPaused: function(){
+      throw "Must be implemented";
+    },
+
+    isPlaying: function(){
+      throw "Must be implemented";
+    },
+    
+    isEnded: function(){
+      throw "Must be implemented";
+    },
+    
+    /**
+     * Check whether video is unstarted
+     * 
+     * @return {boolean} TRUE if unstarted otherwise FALSE
+     */
+    isUnstarted: function(){
+      throw "Must be implemented";      
+    }
+  });
+  
+  // make globally available for event triggering of external player
+  Player.dispatchEvent = function(id){
+    if ( typeof Player.instance == "object" ) {
+      Player.instance.dispatchEvent(id);
+    } else {
+      throw "No player instance available";
+    }
+  };
+  
+  Player.setInstance = function(instance){
+    Player.instance = instance;
+  };
+  
+  Player.getInstance = function(){
+    return Player.instance;
+  };
+  
+  Player.PlaybackQualities = {
+    small: "small",
+    medium: "medium",
+    large: "480p",
+    hd720: "720p",
+    hd1080: "1080p",
+    highres: "highres"
+  };
+  
+  Player.Events = {
+    VideoEnded: "player:video:ended",
+    VideoIdSet: "player::video::id",
+    VideoUnstarted: "player::video::unstarted",
+    VideoEnded: "player::video::ended",
+    VideoPlaying: "player::video::playing",
+    VideoPaused: "player::video::paused",
+    VideoBuffering: "player::video::buffering",
+    VideoPlayerReady: "player::ready",
+    VideoCued: "player::video::cued"
+  };
+  
+	return Player;
+});
+
+tfw.define('tvp/player/PlayerYouTubeHTML5',[
+	"tvp/player/Player",
+  "tvp/EventHandler"
+],
+	function(Player, EventHandler) {
+  /**
+   * PlayerYouTubeHTML5 class
+   * This is the PlayerYouTubeHTML5 class
+   * 
+   * @name PlayerYouTubeHTML5
+   * @class PlayerYouTubeHTML5
+   * @constructor
+   * @return PlayerYouTubeHTML5 Object
+   */
+
+  var PlayerYouTubeHTML5 = Player.extend({
+    bufferingCount:0,
+
+    /**
+     Load a video via provider's ID
+
+     @param {string} id - The unique video id from the provider
+     */
+    loadVideoById: function(videoId){
+      if (this.isPlayerLoaded()) {
+        this.setUpdateInterval();
+        this.videoEndingTriggered = false;
+        this.player.setPlaybackQuality(this.defaultQuality);
+
+        /*This was added because:
+        - Our player returns a playerstate of -1 for BOTH:
+           - initial load while buffering
+           - and when it is loaded and not playing (player start)
+         Thus we need some way of differentiating the two.
+         */
+        this.loadVideoCalled = true;
+        this.setVideoId(videoId);
+        if ( this.isMobile() ) {
+          return this.player.cueVideoById(videoId);
+        }
+
+        return this.player.loadVideoById(videoId);
+      }
+      
+      return false;
+    },
+    
+    cueVideoById: function(videoId) {
+      if ( this.isPlayerLoaded() ) {
+        this.setVideoId(videoId);
+        return this.player.cueVideoById(videoId);
+      }
+    },
+            
+    isMobile: function(){
+      // if we want a more complete list use this: http://detectmobilebrowsers.com/
+      // str.test() is more efficent than str.match()
+      // remember str.test is case sensitive
+      return (/iphone|ipod|android|ie|blackberry|fennec/).test
+           (navigator.userAgent.toLowerCase());
+    },
+ 
+    /**
+     Return the actual video quality of the current video.
+
+     @returns {string}
+     */
+    getPlaybackQuality: function(){
+      if (this.isPlayerLoaded()) {      
+        return this.player.getPlaybackQuality();
+      }
+      
+      return false;
+    },
+
+    /**
+     This function sets the suggested video quality for the current video. The function causes the video to reload
+     at its current position in the new quality. If the playback quality does change, it will only change for the
+     video being played. Calling this function does not guarantee that the playback quality will actually change.
+     However, if the playback quality does change, the onPlaybackQualityChange event will fire, and your code should
+     respond to the event rather than the fact that it called the setPlaybackQuality function.
+
+     @param {string} quality - Set the quality level based on a string
+     */
+    setPlaybackQuality: function(quality){
+     if (this.isPlayerLoaded()) {
+        this.player.setPlaybackQuality(quality);
+     }
+     
+     return false;
+    },
+
+    /**
+     Returns an array of available video quality levels.
+
+     @returns {array} Array of quality levels available
+     */
+    getAvailableQualityLevels: function() {
+      if (this.isPlayerLoaded()) {      
+        return this.player.getAvailableQualityLevels();
+      }
+      return false;
+    },
+
+    /**
+     Play the video. Plays the currently cued/loaded video. The final player state after this function executes will be playing.
+
+     @returns {undefined}
+     */
+    play: function(){
+      if (this.isPlayerLoaded()) {
+        if (this.isUnstarted()) {
+          try {
+            this.loadVideoById();
+          } catch (e) {
+            return false;
+          }
+        }
+        
+        this.player.playVideo();
+        this.setUpdateInterval();
+      }
+      
+      return false;
+    },
+
+		/**
+		 * Stops the video and any loading ops.
+		 */
+		stop:function(){
+			if(this.player){
+        this.player.stopVideo();
+			}
+		},
+            
+    destroy: function(){
+      if (this.isPlayerLoaded()) {
+        return this.player.destroy();
+      }
+      return false;
+    },
+            
+
+    /**
+     * Set the update interval
+     *
+     */
+    setUpdateInterval: function(){
+      var t = this;
+      this.clearInterval();
+      this.interval = setInterval(
+        function(){
+          t.updatePlaybackInfo();
+          t.isVideoEnding();
+        }
+        , 1000
+      );
+    },
+    
+    /**
+     * Update playback info
+     * 
+     * @return void
+     */
+    updatePlaybackInfo: function(){
+      
+      if (!this.isPlayerLoaded()) {
+        return false;
+      }
+
+      var updateInfo = this.getUpdateInfo(true);
+
+      if ( !this.videoEndingTriggered && this.isVideoEnding(updateInfo) ) {
+        EventHandler.trigger(Player.Events.VideoEnding, updateInfo);
+        this.videoEndingTriggered = true;
+      }
+
+      return EventHandler.trigger(Player.Events.VideoUpdate, updateInfo);
+    },
+
+    /**
+     * Checks to see if video is about to end.
+     *
+     * Current rules:
+     * 1. If there are less than 10 seconds of the video left (a short video), or,
+     * 2. If the percentLeft is less than 6% (a long video)
+     *
+     * @param {Event} event data
+     *
+     * @return boolean TRUE if video ending, otherwise FALSE
+     */
+    isVideoEnding: function(updateInfo){
+      if ( typeof updateInfo == "undefined" ) {
+        updateInfo = this.getUpdateInfo();
+      }
+
+      if ( !updateInfo.hasOwnProperty('secondsLeft') ) {
+        return false;
+      }
+      return ( updateInfo.duration>0 && (updateInfo.secondsLeft < 10 || updateInfo.percentLeft < 6) );
+    },
+
+    /**
+     * Get the player data for events
+     *
+     * @return {object} player data (current time, duration)
+     */
+    getUpdateInfo: function(isTick){
+      var updateInfo = {};
+
+      if (this.isPlayerLoaded() && this.player.hasOwnProperty('getCurrentTime')) {
+
+        var currentTime = this.player.getCurrentTime();
+        var duration = this.player.getDuration();
+        var loadedFraction = this.player.getVideoLoadedFraction()*100;
+
+        var secondsLeft = Math.round(duration - currentTime);
+        var percentLeft = Math.round(100-((currentTime * 100) / duration));
+
+        updateInfo = {
+          currentTime: currentTime,
+          duration: duration,
+          loadedFraction: loadedFraction,
+          secondsLeft: secondsLeft,
+          percentLeft: percentLeft
+        };
+
+        //detecting the pure buffering state instead of using isBuffering(),
+        //that method is polluted by other requirements.
+        var plState = this.player.getPlayerState();
+        var isBuffering = plState == PlayerYouTubeHTML5.STATES.buffering;
+        if(isTick){
+          if(isBuffering){
+            this.bufferingCount++;
+            if(this.bufferingCount>=15){
+              var currentTime = this.player.getCurrentTime();
+              var seekTo = currentTime-1<0?0:currentTime-1;
+              this.bufferingCount = 0;
+              this.seek(seekTo);
+            }
+          } else {
+            this.bufferingCount = 0;
+          }
+        }
+      }
+
+      return updateInfo;
+    },
+
+		/**
+		 * Checks to see if player meaningfully exists (hack); i.e., if
+		 * player has a video loaded, playing/paused, and visible to the user.
+		 * @return void
+		 */
+
+		isActive:function(){
+			return (this.isPlaying() || this.isPaused() || this.isVideoEnding() || this.isBuffering());
+		},
+
+		/**
+		 * Checks to see if player meaningfully exists and is DOM-ready
+		 *
+		 * @return void
+		 */
+		isReady:function(){
+			return this.domReady.promise();
+		},
+
+    /**
+     * isPlayerLoaded, checks for the existance of this.player and that it is an object.
+     * @returns {boolean} true|false
+     */
+    isPlayerLoaded: function(){
+      return (this.player != null && typeof this.player == "object");
+    },
+
+
+    /**
+     * Clear the interval
+     *
+     * @return void
+     */
+    clearInterval: function(){
+      if (this.interval) {
+        return window.clearInterval(this.interval);
+      }
+
+      return false;
+    },
+
+    /**
+     Pauses the currently playing video. The final player state after this function executes will be paused
+     unless the player is in the ended (0) state when the function is called, in which case the player state will not
+     change.
+
+     @returns {undefined}
+     */
+    pause: function(){
+      if (this.isPlayerLoaded()) {
+        this.clearInterval();
+        return this.player.pauseVideo();
+      }
+
+      return false;
+    },
+
+    /**
+     * Check if player is currently paused
+     *
+     * @return {boolean} true if paused otherwise false
+     */
+    isPaused: function(){
+      if ( this.isPlayerLoaded() && this.player.hasOwnProperty('getPlayerState') ) {
+        return (this.player.getPlayerState() == PlayerYouTubeHTML5.STATES.paused);
+      }
+
+      return false;
+    },
+
+    /**
+     * Check if player is currently playing
+     *
+     * @return {boolean} true if playing otherwise false
+     */
+    isPlaying: function(){
+      if ( this.isPlayerLoaded() && this.player.hasOwnProperty('getPlayerState') ) {
+        return (this.player.getPlayerState() == PlayerYouTubeHTML5.STATES.playing);
+      }
+
+      return false;
+    },
+
+    /**
+     * Check if player has ended
+     *
+     * @return {boolean} true if ended otherwise false
+     */
+    isEnded: function(){
+      if ( this.isPlayerLoaded() && this.player.hasOwnProperty('getPlayerState') ) {
+        return (this.player.getPlayerState() == PlayerYouTubeHTML5.STATES.ended);
+      }
+
+      return false;
+    },
+
+    /**
+     * Check if player has ended
+     *
+     * @return {boolean} true if ended otherwise false
+     */
+    isUnstarted: function(){
+      if ( this.isPlayerLoaded() && this.player.hasOwnProperty('getPlayerState') ) {
+        return (this.player.getPlayerState() == PlayerYouTubeHTML5.STATES.unstarted);
+      }
+
+      return false;
+    },
+
+    /**
+     * Check if player is buffering
+     *
+     * @return {boolean} true if buffering otherwise false
+     */
+    isBuffering: function(){
+      if ( this.isPlayerLoaded() && this.player.hasOwnProperty('getPlayerState') ) {
+        var plState = this.player.getPlayerState();
+        var buffering = plState == PlayerYouTubeHTML5.STATES.buffering;
+        var unstarted = plState == PlayerYouTubeHTML5.STATES.unstarted;
+        var cued = plState == PlayerYouTubeHTML5.STATES.cued;
+        return (buffering || (unstarted && this.loadVideoCalled) || (cued && this.loadVideoCalled));
+      }
+      return false;
+    },
+
+    /**
+     Mutes the player.
+
+     @returns {undefined}
+     */
+    mute: function(){
+      if ( this.isPlayerLoaded() ) {
+        return this.player.mute();
+      }
+
+      return false;
+    },
+
+    /**
+     Un-mutes the player.
+
+     @returns {undefined}
+     */
+    unmute: function(){
+      if (this.isPlayerLoaded()) {
+        return this.player.unMute();
+      }
+      return false;
+    },
+
+    /**
+     Checks whether or not the player is muted.
+
+     @returns {boolean}
+     */
+    isMuted: function(){
+      if (this.isPlayerLoaded() && this.player.hasOwnProperty('isMuted')) {
+        return this.player.isMuted();
+      }
+
+      return false;
+    },
+
+    /**
+     Seeks to a specified time in the video. If the player is paused when the function is called, it will
+     remain paused. If the function is called from another state (playing, video cued, etc.), the player
+     will play the video.
+
+     @param {integer} seconds - Time in the video to seek to.
+     */
+    seek: function(seconds){
+      if (this.isPlayerLoaded()) {
+        seconds = Math.round(seconds);
+        //this.player.stopVideo();
+        EventHandler.trigger(Player.Events.VideoSeeking);
+        this.player.seekTo(seconds, true);
+        return true;
+      }
+
+      return false;
+    },
+
+    /**
+     Sets the volume. Accepts an integer between 0 and 100.
+
+     @param {integer} volume - 0 to 100
+     */
+    setVolume: function(volume){
+      if (this.isPlayerLoaded()) {
+        return this.player.setVolume(volume);
+      }
+
+      return false;
+    },
+
+    /**
+     Returns the current volume level.
+
+     @returns {integer} Volume - 0 to 100
+     */
+    getVolume: function(){
+      if (this.isPlayerLoaded()) {
+        return this.player.getVolume();
+      }
+
+      return false;
+    },
+
+    /**
+     * Dispatch event with id: triggers the correct system event based on
+     * youtube event id
+     *
+     * @param {integer} id event id
+     *
+     * @return void
+     */
+    dispatchEvent: function(id){
+      var eventId;
+      if (typeof id === "object") {
+        eventId = id.data;
+      } else {
+        eventId = id;
+      }
+
+      switch(eventId) {
+        case PlayerYouTubeHTML5.STATES.unstarted:
+          EventHandler.trigger(Player.Events.VideoUnstarted, this.getUpdateInfo());
+          break;
+        case PlayerYouTubeHTML5.STATES.ended:
+          this.clearInterval();
+          EventHandler.trigger(Player.Events.VideoEnded, this.getUpdateInfo());
+          break;
+        case PlayerYouTubeHTML5.STATES.playing:
+          EventHandler.trigger(Player.Events.VideoPlaying, this.getUpdateInfo());
+          break;
+        case PlayerYouTubeHTML5.STATES.paused:
+          EventHandler.trigger(Player.Events.VideoPaused, this.getUpdateInfo());
+          break;
+        case PlayerYouTubeHTML5.STATES.buffering:
+          EventHandler.trigger(Player.Events.VideoBuffering, this.getUpdateInfo());
+          break;
+				case PlayerYouTubeHTML5.STATES.ready:
+					EventHandler.trigger(Player.Events.VideoPlayerReady, this.getUpdateInfo());
+					break;
+        case PlayerYouTubeHTML5.STATES.cued:
+          EventHandler.trigger(Player.Events.VideoCued, this.getUpdateInfo());
+          break;
+        default:
+          throw "Unknown event with id: " + id;
+      }
+    },
+
+    /**
+     * From the YT API Documentation:
+     *     player.setSize(width:Number, height:Number):Object
+     *     Sets the size in pixels of the <iframe> that contains the player.
+     * @private
+     */
+    resize: function(width, height){
+      if ( this.isPlayerLoaded() ){
+        return this.player.setSize(width, height);
+      }
+      return false;
+    },
+
+    _injectScript: function(){
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    },
+
+    render: function(domId) {
+      if ( this.renderedOnce ) {
+        return this.el;
+      }
+			var THAT=this;
+      Player.prototype.render.call(this);
+      window.onYouTubeIframeAPIReady = function() {
+        var player = new YT.Player(''+ domId + '', {
+          events: {
+            'onStateChange': function(e) {
+              THAT.dispatchEvent(e);
+            },
+            'onReady': function(e) {
+              THAT.player = player;
+              THAT.domReady.resolve();
+            },
+            'onError':function(e) {
+              // nothing yet...
+            }
+          }
+        });
+      };
+      
+      this._injectScript();
+      this.renderedOnce = true;
+      return this.el;
+    }
+  });
+
+  PlayerYouTubeHTML5.STATES = {
+    unstarted:  -1,
+    ended:      0,
+    playing:    1,
+    paused:     2,
+    buffering:  3,
+    ready:      4,
+    cued:       5
+  };
+  
+	return PlayerYouTubeHTML5;
+});
+
+tfw.define('tvp/player/PlayerFactory',[
+"tvp/player/Player",
+"tvp/player/PlayerYouTubeHTML5"
+],
+	function(Player, PlayerYouTubeHTML5) {
+  /**
+   * Player class
+   * This is the Player class
+   * 
+   * @name Player
+   * @class Player
+   * @constructor
+   * @return Player Object
+   */
+  var instance = null;
+  function PlayerFactory(){
+    
+  };
+  
+  PlayerFactory.prototype =  {};
+  PlayerFactory.prototype.constructor = PlayerFactory;
+  
+  PlayerFactory.prototype.make = function(type){
+    return new PlayerYouTubeHTML5();
+  };
+  
+  PlayerFactory.getInstance = function(){
+    if( instance === null ){
+      instance = new PlayerFactory();
+    }
+    return instance;
+  };
+  
+  
+	return PlayerFactory.getInstance();
+});
+
 tfw.define('tvp/Interface',[
   "underscore",
   "tvp/data/SpotCollection",
-  "tvp/data/GuideCollection"
-  //"tvp/player/Player",
+  "tvp/data/GuideCollection",
+  "tvp/player/PlayerFactory"
 ],
 
 /**
@@ -12513,7 +14550,7 @@ tfw.define('tvp/Interface',[
  * @param {type} GuideCollection
  * @returns {_L11.Interface}
  */
-function(_, SpotCollection, GuideCollection) {
+function(_, SpotCollection, GuideCollection, PlayerFactory) {
   
   /**
    * Class Interface
@@ -12523,8 +14560,11 @@ function(_, SpotCollection, GuideCollection) {
    * @returns {_L16.Interface}
    */
   function Interface(options, callback){
+    this.options = options || {};
     this.spotCollection = null;
     this.guideCollection = null;
+    this.callback = callback;
+    this.initPlayer();
   };
 
   Interface.prototype =  {};
@@ -12694,7 +14734,60 @@ function(_, SpotCollection, GuideCollection) {
     
     return item;
   };
+  
+  Interface.prototype.initPlayer = function(type){
+    this.player = PlayerFactory.make();
+    if ( !_.has(this.options, 'domId') || typeof this.options.domId !== "string" || this.options.domId.length<=0) {
+      throw new Error("No DOM Id found for the player embed");
+    }
+    this.player.render(this.options.domId);
+    this.ready();
+  };
+  
+  Interface.prototype.ready = function(){
+    var isReady = this.player.isReady();
+    var THAT = this;
+    isReady.done(function(){
+      THAT.playerReadyCallback();
+    });
+    
+    isReady.fail(function(){
+      throw new Error("Failed to load player");
+    });
+  }
+  
+  Interface.prototype.playerReadyCallback = function(){
+    if (typeof this.callback == "function"){
+      var callback = this.callback;
+      callback();
+    }
+  };  
 
+  Interface.prototype.loadById = function(videoId){
+     var video = this.getItem(videoId);
+     if (!_.isObject(video) || !_.has(video, "videoId")) {
+       return false;
+     }
+     
+     return this.player.loadVideoById(video.videoId);
+  };  
+
+  Interface.prototype.seekTo = function(seek){
+    return this.player.seekTo(seek);
+  };  
+  
+  Interface.prototype.volume = function(volume){
+    return this.player.volume(volume);
+  };  
+  
+  Interface.prototype.play = function(){
+    return this.player.play();
+  };  
+
+  Interface.prototype.pause = function(){
+    return this.player.pause();
+  };  
+  
   return Interface;
 });
 // Save reference to the global object
@@ -12710,9 +14803,10 @@ TVPage.ready = function(callback){
 };
 // Start the main app logic.
 tfw.requirejs([
+  "jquery",
   "tvp/Interface"
 ],
-  function(TVPInterface) {
+  function($, TVPInterface) {
     TVPage.getSpots = function(videoId, success, failure){
       return TVPage.interface.getSpots(videoId, success, failure);
     };
@@ -12742,23 +14836,23 @@ tfw.requirejs([
     }
     
     TVPage.play = function(){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.play();
     };
     
     TVPage.pause = function(){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.pause();
     };
     
     TVPage.loadById = function(videoId){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.loadById(videoId);
     };
     
     TVPage.seekTo = function(seek){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.seekTo();
     };
 
     TVPage.volume = function(volume){
-      throw new Error("Not yet implemented");
+      return TVPage.interface.volume(volume);
     };
     
     TVPage.init = function(){
@@ -12776,12 +14870,11 @@ tfw.requirejs([
       }
       
       TVPage.interface = new TVPInterface(options, callback);
-      if (typeof callback == "function"){
-        callback();
-      }
     };
     
-    TVPage.init();
+    $(document).ready(function(){
+      TVPage.init();
+    });
   });
 
 

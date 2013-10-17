@@ -1,7 +1,8 @@
 define([
-	"tvp/player/Player"
+	"tvp/player/Player",
+  "tvp/EventHandler"
 ],
-	function(Player) {
+	function(Player, EventHandler) {
   /**
    * PlayerYouTubeHTML5 class
    * This is the PlayerYouTubeHTML5 class
@@ -20,18 +21,10 @@ define([
 
      @param {string} id - The unique video id from the provider
      */
-    loadVideoById: function(){
-			var THAT=this;
+    loadVideoById: function(videoId){
       if (this.isPlayerLoaded()) {
         this.setUpdateInterval();
         this.videoEndingTriggered = false;
-
-        var item = this.data.guideCollection.get(this.getVideoId());
-        
-        if (typeof item !== "object") {
-          throw "Video not found in collection. ID: " + this.getVideoId();
-        }
-
         this.player.setPlaybackQuality(this.defaultQuality);
 
         /*This was added because:
@@ -41,25 +34,22 @@ define([
          Thus we need some way of differentiating the two.
          */
         this.loadVideoCalled = true;
-
-        if (this.isMobile()) {
-          return this.player.cueVideoById(item.get('videoId'));
+        this.setVideoId(videoId);
+        if ( this.isMobile() ) {
+          return this.player.cueVideoById(videoId);
         }
 
-        return this.player.loadVideoById(item.get('videoId'));
+        return this.player.loadVideoById(videoId);
       }
       
       return false;
     },
     
-    cueVideoById: function() {
-      if (this.isPlayerLoaded()) {
-        var asset = TVP_CURRENT_VIDEO();
-        if (asset) {
-          return this.player.cueVideoById(asset.get('videoId'));
-        }
+    cueVideoById: function(videoId) {
+      if ( this.isPlayerLoaded() ) {
+        this.setVideoId(videoId);
+        return this.player.cueVideoById(videoId);
       }
-
     },
             
     isMobile: function(){
@@ -181,11 +171,11 @@ define([
       var updateInfo = this.getUpdateInfo(true);
 
       if ( !this.videoEndingTriggered && this.isVideoEnding(updateInfo) ) {
-        Player.trigger(Player.Events.VideoEnding, updateInfo);
+        EventHandler.trigger(Player.Events.VideoEnding, updateInfo);
         this.videoEndingTriggered = true;
       }
 
-      return Player.trigger(Player.Events.VideoUpdate, updateInfo);
+      return EventHandler.trigger(Player.Events.VideoUpdate, updateInfo);
     },
 
     /**
@@ -200,7 +190,6 @@ define([
      * @return boolean TRUE if video ending, otherwise FALSE
      */
     isVideoEnding: function(updateInfo){
-      
       if ( typeof updateInfo == "undefined" ) {
         updateInfo = this.getUpdateInfo();
       }
@@ -432,7 +421,7 @@ define([
       if (this.isPlayerLoaded()) {
         seconds = Math.round(seconds);
         //this.player.stopVideo();
-        Player.trigger(Player.Events.VideoSeeking);
+        EventHandler.trigger(Player.Events.VideoSeeking);
         this.player.seekTo(seconds, true);
         return true;
       }
@@ -484,26 +473,26 @@ define([
 
       switch(eventId) {
         case PlayerYouTubeHTML5.STATES.unstarted:
-          Player.trigger(Player.Events.VideoUnstarted, this.getUpdateInfo());
+          EventHandler.trigger(Player.Events.VideoUnstarted, this.getUpdateInfo());
           break;
         case PlayerYouTubeHTML5.STATES.ended:
           this.clearInterval();
-          Player.trigger(Player.Events.VideoEnded, this.getUpdateInfo());
+          EventHandler.trigger(Player.Events.VideoEnded, this.getUpdateInfo());
           break;
         case PlayerYouTubeHTML5.STATES.playing:
-          Player.trigger(Player.Events.VideoPlaying, this.getUpdateInfo());
+          EventHandler.trigger(Player.Events.VideoPlaying, this.getUpdateInfo());
           break;
         case PlayerYouTubeHTML5.STATES.paused:
-          Player.trigger(Player.Events.VideoPaused, this.getUpdateInfo());
+          EventHandler.trigger(Player.Events.VideoPaused, this.getUpdateInfo());
           break;
         case PlayerYouTubeHTML5.STATES.buffering:
-          Player.trigger(Player.Events.VideoBuffering, this.getUpdateInfo());
+          EventHandler.trigger(Player.Events.VideoBuffering, this.getUpdateInfo());
           break;
 				case PlayerYouTubeHTML5.STATES.ready:
-					Player.trigger(Player.Events.VideoPlayerReady, this.getUpdateInfo());
+					EventHandler.trigger(Player.Events.VideoPlayerReady, this.getUpdateInfo());
 					break;
         case PlayerYouTubeHTML5.STATES.cued:
-          Player.trigger(Player.Events.VideoCued, this.getUpdateInfo());
+          EventHandler.trigger(Player.Events.VideoCued, this.getUpdateInfo());
           break;
         default:
           throw "Unknown event with id: " + id;
@@ -530,21 +519,21 @@ define([
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     },
 
-    render: function() {
+    render: function(domId) {
       if ( this.renderedOnce ) {
         return this.el;
       }
-			var THIS=this;
+			var THAT=this;
       Player.prototype.render.call(this);
       window.onYouTubeIframeAPIReady = function() {
-        var player = new YT.Player('PlayerReal', {
+        var player = new YT.Player(''+ domId + '', {
           events: {
             'onStateChange': function(e) {
-              THIS.dispatchEvent(e);
+              THAT.dispatchEvent(e);
             },
             'onReady': function(e) {
-              THIS.player = player;
-              THIS.domReady.resolve();
+              THAT.player = player;
+              THAT.domReady.resolve();
             },
             'onError':function(e) {
               // nothing yet...

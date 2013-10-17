@@ -1,8 +1,8 @@
 define([
   "underscore",
   "tvp/data/SpotCollection",
-  "tvp/data/GuideCollection"
-  //"tvp/player/Player",
+  "tvp/data/GuideCollection",
+  "tvp/player/PlayerFactory"
 ],
 
 /**
@@ -13,7 +13,7 @@ define([
  * @param {type} GuideCollection
  * @returns {_L11.Interface}
  */
-function(_, SpotCollection, GuideCollection) {
+function(_, SpotCollection, GuideCollection, PlayerFactory) {
   
   /**
    * Class Interface
@@ -23,8 +23,11 @@ function(_, SpotCollection, GuideCollection) {
    * @returns {_L16.Interface}
    */
   function Interface(options, callback){
+    this.options = options || {};
     this.spotCollection = null;
     this.guideCollection = null;
+    this.callback = callback;
+    this.initPlayer();
   };
 
   Interface.prototype =  {};
@@ -194,6 +197,59 @@ function(_, SpotCollection, GuideCollection) {
     
     return item;
   };
+  
+  Interface.prototype.initPlayer = function(type){
+    this.player = PlayerFactory.make();
+    if ( !_.has(this.options, 'domId') || typeof this.options.domId !== "string" || this.options.domId.length<=0) {
+      throw new Error("No DOM Id found for the player embed");
+    }
+    this.player.render(this.options.domId);
+    this.ready();
+  };
+  
+  Interface.prototype.ready = function(){
+    var isReady = this.player.isReady();
+    var THAT = this;
+    isReady.done(function(){
+      THAT.playerReadyCallback();
+    });
+    
+    isReady.fail(function(){
+      throw new Error("Failed to load player");
+    });
+  }
+  
+  Interface.prototype.playerReadyCallback = function(){
+    if (typeof this.callback == "function"){
+      var callback = this.callback;
+      callback();
+    }
+  };  
 
+  Interface.prototype.loadById = function(videoId){
+     var video = this.getItem(videoId);
+     if (!_.isObject(video) || !_.has(video, "videoId")) {
+       return false;
+     }
+     
+     return this.player.loadVideoById(video.videoId);
+  };  
+
+  Interface.prototype.seekTo = function(seek){
+    return this.player.seekTo(seek);
+  };  
+  
+  Interface.prototype.volume = function(volume){
+    return this.player.volume(volume);
+  };  
+  
+  Interface.prototype.play = function(){
+    return this.player.play();
+  };  
+
+  Interface.prototype.pause = function(){
+    return this.player.pause();
+  };  
+  
   return Interface;
 });
